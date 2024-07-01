@@ -1,0 +1,520 @@
+//Copyright (C)2014-2023 Gowin Semiconductor Corporation.
+//All rights reserved.
+//File Title: Post-PnR Simulation Model file
+//Tool Version: V1.9.9 (64-bit)
+//Created Time: Wed Jun  5 21:46:47 2024
+
+`timescale 100 ps/100 ps
+module Complex_Multiplier_Top(
+	ce,
+	clk,
+	reset,
+	real1,
+	real2,
+	imag1,
+	imag2,
+	realo,
+	imago
+);
+input ce;
+input clk;
+input reset;
+input [7:0] real1;
+input [7:0] real2;
+input [7:0] imag1;
+input [7:0] imag2;
+output [18:0] realo;
+output [18:0] imago;
+wire GND;
+wire VCC;
+wire ce;
+wire clk;
+wire [7:0] imag1;
+wire [7:0] imag2;
+wire [18:0] imago;
+wire [7:0] real1;
+wire [7:0] real2;
+wire [18:0] realo;
+wire reset;
+wire \u_complex_mult/imago_d_0_3 ;
+wire \u_complex_mult/imago_d_1_3 ;
+wire \u_complex_mult/imago_d_2_3 ;
+wire \u_complex_mult/imago_d_3_3 ;
+wire \u_complex_mult/imago_d_4_3 ;
+wire \u_complex_mult/imago_d_5_3 ;
+wire \u_complex_mult/imago_d_6_3 ;
+wire \u_complex_mult/imago_d_7_3 ;
+wire \u_complex_mult/imago_d_8_3 ;
+wire \u_complex_mult/imago_d_9_3 ;
+wire \u_complex_mult/imago_d_10_3 ;
+wire \u_complex_mult/imago_d_11_3 ;
+wire \u_complex_mult/imago_d_12_3 ;
+wire \u_complex_mult/imago_d_13_3 ;
+wire \u_complex_mult/imago_d_14_3 ;
+wire \u_complex_mult/imago_d_15_3 ;
+wire \u_complex_mult/imago_d_16_3 ;
+wire \u_complex_mult/imago_d_17_3 ;
+wire \u_complex_mult/imago_d_18_0_COUT ;
+wire \u_complex_mult/realo_d_0_4 ;
+wire \u_complex_mult/realo_d_1_4 ;
+wire \u_complex_mult/realo_d_2_4 ;
+wire \u_complex_mult/realo_d_3_4 ;
+wire \u_complex_mult/realo_d_4_4 ;
+wire \u_complex_mult/realo_d_5_4 ;
+wire \u_complex_mult/realo_d_6_4 ;
+wire \u_complex_mult/realo_d_7_4 ;
+wire \u_complex_mult/realo_d_8_4 ;
+wire \u_complex_mult/realo_d_9_4 ;
+wire \u_complex_mult/realo_d_10_4 ;
+wire \u_complex_mult/realo_d_11_4 ;
+wire \u_complex_mult/realo_d_12_4 ;
+wire \u_complex_mult/realo_d_13_4 ;
+wire \u_complex_mult/realo_d_14_4 ;
+wire \u_complex_mult/realo_d_15_4 ;
+wire \u_complex_mult/realo_d_16_4 ;
+wire \u_complex_mult/realo_d_17_4 ;
+wire \u_complex_mult/realo_d_18_0_COUT ;
+wire [18:0] \u_complex_mult/m ;
+wire [18:0] \u_complex_mult/n ;
+wire [18:0] \u_complex_mult/g ;
+wire [18:0] \u_complex_mult/h ;
+wire [23:19] \u_complex_mult/DOUT ;
+wire [23:19] \u_complex_mult/DOUT_0 ;
+wire [23:19] \u_complex_mult/DOUT_1 ;
+wire [23:19] \u_complex_mult/DOUT_2 ;
+VCC VCC_cZ (
+  .V(VCC)
+);
+GND GND_cZ (
+  .G(GND)
+);
+GSR GSR (
+	.GSRI(VCC)
+);
+MULT12X12 \u_complex_mult/mult12x12_inst1  (
+	.DOUT({\u_complex_mult/DOUT [23:19], \u_complex_mult/m [18:0]}),
+	.A({real1[7], real1[7], real1[7], real1[7], real1[7:0]}),
+	.B({real2[7], real2[7], real2[7], real2[7], real2[7:0]}),
+	.CLK({GND, clk}),
+	.CE({GND, ce}),
+	.RESET({GND, reset})
+);
+defparam \u_complex_mult/mult12x12_inst1 .OREG_CLK="CLK0";
+defparam \u_complex_mult/mult12x12_inst1 .OREG_CE="CE0";
+defparam \u_complex_mult/mult12x12_inst1 .OREG_RESET="RESET0";
+defparam \u_complex_mult/mult12x12_inst1 .MULT_RESET_MODE="SYNC";
+defparam \u_complex_mult/mult12x12_inst1 .AREG_CLK="BYPASS";
+defparam \u_complex_mult/mult12x12_inst1 .AREG_CE="CE0";
+defparam \u_complex_mult/mult12x12_inst1 .AREG_RESET="RESET0";
+defparam \u_complex_mult/mult12x12_inst1 .BREG_CLK="BYPASS";
+defparam \u_complex_mult/mult12x12_inst1 .BREG_CE="CE0";
+defparam \u_complex_mult/mult12x12_inst1 .BREG_RESET="RESET0";
+defparam \u_complex_mult/mult12x12_inst1 .PREG_CLK="BYPASS";
+defparam \u_complex_mult/mult12x12_inst1 .PREG_CE="CE0";
+defparam \u_complex_mult/mult12x12_inst1 .PREG_RESET="RESET0";
+MULT12X12 \u_complex_mult/mult12x12_inst2  (
+	.DOUT({\u_complex_mult/DOUT_0 [23:19], \u_complex_mult/n [18:0]}),
+	.A({imag1[7], imag1[7], imag1[7], imag1[7], imag1[7:0]}),
+	.B({imag2[7], imag2[7], imag2[7], imag2[7], imag2[7:0]}),
+	.CLK({GND, clk}),
+	.CE({GND, ce}),
+	.RESET({GND, reset})
+);
+defparam \u_complex_mult/mult12x12_inst2 .OREG_CLK="CLK0";
+defparam \u_complex_mult/mult12x12_inst2 .OREG_CE="CE0";
+defparam \u_complex_mult/mult12x12_inst2 .OREG_RESET="RESET0";
+defparam \u_complex_mult/mult12x12_inst2 .MULT_RESET_MODE="SYNC";
+defparam \u_complex_mult/mult12x12_inst2 .AREG_CLK="BYPASS";
+defparam \u_complex_mult/mult12x12_inst2 .AREG_CE="CE0";
+defparam \u_complex_mult/mult12x12_inst2 .AREG_RESET="RESET0";
+defparam \u_complex_mult/mult12x12_inst2 .BREG_CLK="BYPASS";
+defparam \u_complex_mult/mult12x12_inst2 .BREG_CE="CE0";
+defparam \u_complex_mult/mult12x12_inst2 .BREG_RESET="RESET0";
+defparam \u_complex_mult/mult12x12_inst2 .PREG_CLK="BYPASS";
+defparam \u_complex_mult/mult12x12_inst2 .PREG_CE="CE0";
+defparam \u_complex_mult/mult12x12_inst2 .PREG_RESET="RESET0";
+MULT12X12 \u_complex_mult/mult12x12_inst3  (
+	.DOUT({\u_complex_mult/DOUT_1 [23:19], \u_complex_mult/g [18:0]}),
+	.A({real1[7], real1[7], real1[7], real1[7], real1[7:0]}),
+	.B({imag2[7], imag2[7], imag2[7], imag2[7], imag2[7:0]}),
+	.CLK({GND, clk}),
+	.CE({GND, ce}),
+	.RESET({GND, reset})
+);
+defparam \u_complex_mult/mult12x12_inst3 .OREG_CLK="CLK0";
+defparam \u_complex_mult/mult12x12_inst3 .OREG_CE="CE0";
+defparam \u_complex_mult/mult12x12_inst3 .OREG_RESET="RESET0";
+defparam \u_complex_mult/mult12x12_inst3 .MULT_RESET_MODE="SYNC";
+defparam \u_complex_mult/mult12x12_inst3 .AREG_CLK="BYPASS";
+defparam \u_complex_mult/mult12x12_inst3 .AREG_CE="CE0";
+defparam \u_complex_mult/mult12x12_inst3 .AREG_RESET="RESET0";
+defparam \u_complex_mult/mult12x12_inst3 .BREG_CLK="BYPASS";
+defparam \u_complex_mult/mult12x12_inst3 .BREG_CE="CE0";
+defparam \u_complex_mult/mult12x12_inst3 .BREG_RESET="RESET0";
+defparam \u_complex_mult/mult12x12_inst3 .PREG_CLK="BYPASS";
+defparam \u_complex_mult/mult12x12_inst3 .PREG_CE="CE0";
+defparam \u_complex_mult/mult12x12_inst3 .PREG_RESET="RESET0";
+MULT12X12 \u_complex_mult/mult12x12_inst4  (
+	.DOUT({\u_complex_mult/DOUT_2 [23:19], \u_complex_mult/h [18:0]}),
+	.A({imag1[7], imag1[7], imag1[7], imag1[7], imag1[7:0]}),
+	.B({real2[7], real2[7], real2[7], real2[7], real2[7:0]}),
+	.CLK({GND, clk}),
+	.CE({GND, ce}),
+	.RESET({GND, reset})
+);
+defparam \u_complex_mult/mult12x12_inst4 .OREG_CLK="CLK0";
+defparam \u_complex_mult/mult12x12_inst4 .OREG_CE="CE0";
+defparam \u_complex_mult/mult12x12_inst4 .OREG_RESET="RESET0";
+defparam \u_complex_mult/mult12x12_inst4 .MULT_RESET_MODE="SYNC";
+defparam \u_complex_mult/mult12x12_inst4 .AREG_CLK="BYPASS";
+defparam \u_complex_mult/mult12x12_inst4 .AREG_CE="CE0";
+defparam \u_complex_mult/mult12x12_inst4 .AREG_RESET="RESET0";
+defparam \u_complex_mult/mult12x12_inst4 .BREG_CLK="BYPASS";
+defparam \u_complex_mult/mult12x12_inst4 .BREG_CE="CE0";
+defparam \u_complex_mult/mult12x12_inst4 .BREG_RESET="RESET0";
+defparam \u_complex_mult/mult12x12_inst4 .PREG_CLK="BYPASS";
+defparam \u_complex_mult/mult12x12_inst4 .PREG_CE="CE0";
+defparam \u_complex_mult/mult12x12_inst4 .PREG_RESET="RESET0";
+ALU \u_complex_mult/imago_d_0_s  (
+	.I0(\u_complex_mult/g [0]),
+	.I1(\u_complex_mult/h [0]),
+	.I3(GND),
+	.CIN(GND),
+	.COUT(\u_complex_mult/imago_d_0_3 ),
+	.SUM(imago[0])
+);
+defparam \u_complex_mult/imago_d_0_s .ALU_MODE=0;
+ALU \u_complex_mult/imago_d_1_s  (
+	.I0(\u_complex_mult/g [1]),
+	.I1(\u_complex_mult/h [1]),
+	.I3(GND),
+	.CIN(\u_complex_mult/imago_d_0_3 ),
+	.COUT(\u_complex_mult/imago_d_1_3 ),
+	.SUM(imago[1])
+);
+defparam \u_complex_mult/imago_d_1_s .ALU_MODE=0;
+ALU \u_complex_mult/imago_d_2_s  (
+	.I0(\u_complex_mult/g [2]),
+	.I1(\u_complex_mult/h [2]),
+	.I3(GND),
+	.CIN(\u_complex_mult/imago_d_1_3 ),
+	.COUT(\u_complex_mult/imago_d_2_3 ),
+	.SUM(imago[2])
+);
+defparam \u_complex_mult/imago_d_2_s .ALU_MODE=0;
+ALU \u_complex_mult/imago_d_3_s  (
+	.I0(\u_complex_mult/g [3]),
+	.I1(\u_complex_mult/h [3]),
+	.I3(GND),
+	.CIN(\u_complex_mult/imago_d_2_3 ),
+	.COUT(\u_complex_mult/imago_d_3_3 ),
+	.SUM(imago[3])
+);
+defparam \u_complex_mult/imago_d_3_s .ALU_MODE=0;
+ALU \u_complex_mult/imago_d_4_s  (
+	.I0(\u_complex_mult/g [4]),
+	.I1(\u_complex_mult/h [4]),
+	.I3(GND),
+	.CIN(\u_complex_mult/imago_d_3_3 ),
+	.COUT(\u_complex_mult/imago_d_4_3 ),
+	.SUM(imago[4])
+);
+defparam \u_complex_mult/imago_d_4_s .ALU_MODE=0;
+ALU \u_complex_mult/imago_d_5_s  (
+	.I0(\u_complex_mult/g [5]),
+	.I1(\u_complex_mult/h [5]),
+	.I3(GND),
+	.CIN(\u_complex_mult/imago_d_4_3 ),
+	.COUT(\u_complex_mult/imago_d_5_3 ),
+	.SUM(imago[5])
+);
+defparam \u_complex_mult/imago_d_5_s .ALU_MODE=0;
+ALU \u_complex_mult/imago_d_6_s  (
+	.I0(\u_complex_mult/g [6]),
+	.I1(\u_complex_mult/h [6]),
+	.I3(GND),
+	.CIN(\u_complex_mult/imago_d_5_3 ),
+	.COUT(\u_complex_mult/imago_d_6_3 ),
+	.SUM(imago[6])
+);
+defparam \u_complex_mult/imago_d_6_s .ALU_MODE=0;
+ALU \u_complex_mult/imago_d_7_s  (
+	.I0(\u_complex_mult/g [7]),
+	.I1(\u_complex_mult/h [7]),
+	.I3(GND),
+	.CIN(\u_complex_mult/imago_d_6_3 ),
+	.COUT(\u_complex_mult/imago_d_7_3 ),
+	.SUM(imago[7])
+);
+defparam \u_complex_mult/imago_d_7_s .ALU_MODE=0;
+ALU \u_complex_mult/imago_d_8_s  (
+	.I0(\u_complex_mult/g [8]),
+	.I1(\u_complex_mult/h [8]),
+	.I3(GND),
+	.CIN(\u_complex_mult/imago_d_7_3 ),
+	.COUT(\u_complex_mult/imago_d_8_3 ),
+	.SUM(imago[8])
+);
+defparam \u_complex_mult/imago_d_8_s .ALU_MODE=0;
+ALU \u_complex_mult/imago_d_9_s  (
+	.I0(\u_complex_mult/g [9]),
+	.I1(\u_complex_mult/h [9]),
+	.I3(GND),
+	.CIN(\u_complex_mult/imago_d_8_3 ),
+	.COUT(\u_complex_mult/imago_d_9_3 ),
+	.SUM(imago[9])
+);
+defparam \u_complex_mult/imago_d_9_s .ALU_MODE=0;
+ALU \u_complex_mult/imago_d_10_s  (
+	.I0(\u_complex_mult/g [10]),
+	.I1(\u_complex_mult/h [10]),
+	.I3(GND),
+	.CIN(\u_complex_mult/imago_d_9_3 ),
+	.COUT(\u_complex_mult/imago_d_10_3 ),
+	.SUM(imago[10])
+);
+defparam \u_complex_mult/imago_d_10_s .ALU_MODE=0;
+ALU \u_complex_mult/imago_d_11_s  (
+	.I0(\u_complex_mult/g [11]),
+	.I1(\u_complex_mult/h [11]),
+	.I3(GND),
+	.CIN(\u_complex_mult/imago_d_10_3 ),
+	.COUT(\u_complex_mult/imago_d_11_3 ),
+	.SUM(imago[11])
+);
+defparam \u_complex_mult/imago_d_11_s .ALU_MODE=0;
+ALU \u_complex_mult/imago_d_12_s  (
+	.I0(\u_complex_mult/g [12]),
+	.I1(\u_complex_mult/h [12]),
+	.I3(GND),
+	.CIN(\u_complex_mult/imago_d_11_3 ),
+	.COUT(\u_complex_mult/imago_d_12_3 ),
+	.SUM(imago[12])
+);
+defparam \u_complex_mult/imago_d_12_s .ALU_MODE=0;
+ALU \u_complex_mult/imago_d_13_s  (
+	.I0(\u_complex_mult/g [13]),
+	.I1(\u_complex_mult/h [13]),
+	.I3(GND),
+	.CIN(\u_complex_mult/imago_d_12_3 ),
+	.COUT(\u_complex_mult/imago_d_13_3 ),
+	.SUM(imago[13])
+);
+defparam \u_complex_mult/imago_d_13_s .ALU_MODE=0;
+ALU \u_complex_mult/imago_d_14_s  (
+	.I0(\u_complex_mult/g [14]),
+	.I1(\u_complex_mult/h [14]),
+	.I3(GND),
+	.CIN(\u_complex_mult/imago_d_13_3 ),
+	.COUT(\u_complex_mult/imago_d_14_3 ),
+	.SUM(imago[14])
+);
+defparam \u_complex_mult/imago_d_14_s .ALU_MODE=0;
+ALU \u_complex_mult/imago_d_15_s  (
+	.I0(\u_complex_mult/g [15]),
+	.I1(\u_complex_mult/h [15]),
+	.I3(GND),
+	.CIN(\u_complex_mult/imago_d_14_3 ),
+	.COUT(\u_complex_mult/imago_d_15_3 ),
+	.SUM(imago[15])
+);
+defparam \u_complex_mult/imago_d_15_s .ALU_MODE=0;
+ALU \u_complex_mult/imago_d_16_s  (
+	.I0(\u_complex_mult/g [16]),
+	.I1(\u_complex_mult/h [16]),
+	.I3(GND),
+	.CIN(\u_complex_mult/imago_d_15_3 ),
+	.COUT(\u_complex_mult/imago_d_16_3 ),
+	.SUM(imago[16])
+);
+defparam \u_complex_mult/imago_d_16_s .ALU_MODE=0;
+ALU \u_complex_mult/imago_d_17_s  (
+	.I0(\u_complex_mult/g [17]),
+	.I1(\u_complex_mult/h [17]),
+	.I3(GND),
+	.CIN(\u_complex_mult/imago_d_16_3 ),
+	.COUT(\u_complex_mult/imago_d_17_3 ),
+	.SUM(imago[17])
+);
+defparam \u_complex_mult/imago_d_17_s .ALU_MODE=0;
+ALU \u_complex_mult/imago_d_18_s  (
+	.I0(\u_complex_mult/g [18]),
+	.I1(\u_complex_mult/h [18]),
+	.I3(GND),
+	.CIN(\u_complex_mult/imago_d_17_3 ),
+	.COUT(\u_complex_mult/imago_d_18_0_COUT ),
+	.SUM(imago[18])
+);
+defparam \u_complex_mult/imago_d_18_s .ALU_MODE=0;
+ALU \u_complex_mult/realo_d_0_s  (
+	.I0(\u_complex_mult/m [0]),
+	.I1(\u_complex_mult/n [0]),
+	.I3(GND),
+	.CIN(VCC),
+	.COUT(\u_complex_mult/realo_d_0_4 ),
+	.SUM(realo[0])
+);
+defparam \u_complex_mult/realo_d_0_s .ALU_MODE=1;
+ALU \u_complex_mult/realo_d_1_s  (
+	.I0(\u_complex_mult/m [1]),
+	.I1(\u_complex_mult/n [1]),
+	.I3(GND),
+	.CIN(\u_complex_mult/realo_d_0_4 ),
+	.COUT(\u_complex_mult/realo_d_1_4 ),
+	.SUM(realo[1])
+);
+defparam \u_complex_mult/realo_d_1_s .ALU_MODE=1;
+ALU \u_complex_mult/realo_d_2_s  (
+	.I0(\u_complex_mult/m [2]),
+	.I1(\u_complex_mult/n [2]),
+	.I3(GND),
+	.CIN(\u_complex_mult/realo_d_1_4 ),
+	.COUT(\u_complex_mult/realo_d_2_4 ),
+	.SUM(realo[2])
+);
+defparam \u_complex_mult/realo_d_2_s .ALU_MODE=1;
+ALU \u_complex_mult/realo_d_3_s  (
+	.I0(\u_complex_mult/m [3]),
+	.I1(\u_complex_mult/n [3]),
+	.I3(GND),
+	.CIN(\u_complex_mult/realo_d_2_4 ),
+	.COUT(\u_complex_mult/realo_d_3_4 ),
+	.SUM(realo[3])
+);
+defparam \u_complex_mult/realo_d_3_s .ALU_MODE=1;
+ALU \u_complex_mult/realo_d_4_s  (
+	.I0(\u_complex_mult/m [4]),
+	.I1(\u_complex_mult/n [4]),
+	.I3(GND),
+	.CIN(\u_complex_mult/realo_d_3_4 ),
+	.COUT(\u_complex_mult/realo_d_4_4 ),
+	.SUM(realo[4])
+);
+defparam \u_complex_mult/realo_d_4_s .ALU_MODE=1;
+ALU \u_complex_mult/realo_d_5_s  (
+	.I0(\u_complex_mult/m [5]),
+	.I1(\u_complex_mult/n [5]),
+	.I3(GND),
+	.CIN(\u_complex_mult/realo_d_4_4 ),
+	.COUT(\u_complex_mult/realo_d_5_4 ),
+	.SUM(realo[5])
+);
+defparam \u_complex_mult/realo_d_5_s .ALU_MODE=1;
+ALU \u_complex_mult/realo_d_6_s  (
+	.I0(\u_complex_mult/m [6]),
+	.I1(\u_complex_mult/n [6]),
+	.I3(GND),
+	.CIN(\u_complex_mult/realo_d_5_4 ),
+	.COUT(\u_complex_mult/realo_d_6_4 ),
+	.SUM(realo[6])
+);
+defparam \u_complex_mult/realo_d_6_s .ALU_MODE=1;
+ALU \u_complex_mult/realo_d_7_s  (
+	.I0(\u_complex_mult/m [7]),
+	.I1(\u_complex_mult/n [7]),
+	.I3(GND),
+	.CIN(\u_complex_mult/realo_d_6_4 ),
+	.COUT(\u_complex_mult/realo_d_7_4 ),
+	.SUM(realo[7])
+);
+defparam \u_complex_mult/realo_d_7_s .ALU_MODE=1;
+ALU \u_complex_mult/realo_d_8_s  (
+	.I0(\u_complex_mult/m [8]),
+	.I1(\u_complex_mult/n [8]),
+	.I3(GND),
+	.CIN(\u_complex_mult/realo_d_7_4 ),
+	.COUT(\u_complex_mult/realo_d_8_4 ),
+	.SUM(realo[8])
+);
+defparam \u_complex_mult/realo_d_8_s .ALU_MODE=1;
+ALU \u_complex_mult/realo_d_9_s  (
+	.I0(\u_complex_mult/m [9]),
+	.I1(\u_complex_mult/n [9]),
+	.I3(GND),
+	.CIN(\u_complex_mult/realo_d_8_4 ),
+	.COUT(\u_complex_mult/realo_d_9_4 ),
+	.SUM(realo[9])
+);
+defparam \u_complex_mult/realo_d_9_s .ALU_MODE=1;
+ALU \u_complex_mult/realo_d_10_s  (
+	.I0(\u_complex_mult/m [10]),
+	.I1(\u_complex_mult/n [10]),
+	.I3(GND),
+	.CIN(\u_complex_mult/realo_d_9_4 ),
+	.COUT(\u_complex_mult/realo_d_10_4 ),
+	.SUM(realo[10])
+);
+defparam \u_complex_mult/realo_d_10_s .ALU_MODE=1;
+ALU \u_complex_mult/realo_d_11_s  (
+	.I0(\u_complex_mult/m [11]),
+	.I1(\u_complex_mult/n [11]),
+	.I3(GND),
+	.CIN(\u_complex_mult/realo_d_10_4 ),
+	.COUT(\u_complex_mult/realo_d_11_4 ),
+	.SUM(realo[11])
+);
+defparam \u_complex_mult/realo_d_11_s .ALU_MODE=1;
+ALU \u_complex_mult/realo_d_12_s  (
+	.I0(\u_complex_mult/m [12]),
+	.I1(\u_complex_mult/n [12]),
+	.I3(GND),
+	.CIN(\u_complex_mult/realo_d_11_4 ),
+	.COUT(\u_complex_mult/realo_d_12_4 ),
+	.SUM(realo[12])
+);
+defparam \u_complex_mult/realo_d_12_s .ALU_MODE=1;
+ALU \u_complex_mult/realo_d_13_s  (
+	.I0(\u_complex_mult/m [13]),
+	.I1(\u_complex_mult/n [13]),
+	.I3(GND),
+	.CIN(\u_complex_mult/realo_d_12_4 ),
+	.COUT(\u_complex_mult/realo_d_13_4 ),
+	.SUM(realo[13])
+);
+defparam \u_complex_mult/realo_d_13_s .ALU_MODE=1;
+ALU \u_complex_mult/realo_d_14_s  (
+	.I0(\u_complex_mult/m [14]),
+	.I1(\u_complex_mult/n [14]),
+	.I3(GND),
+	.CIN(\u_complex_mult/realo_d_13_4 ),
+	.COUT(\u_complex_mult/realo_d_14_4 ),
+	.SUM(realo[14])
+);
+defparam \u_complex_mult/realo_d_14_s .ALU_MODE=1;
+ALU \u_complex_mult/realo_d_15_s  (
+	.I0(\u_complex_mult/m [15]),
+	.I1(\u_complex_mult/n [15]),
+	.I3(GND),
+	.CIN(\u_complex_mult/realo_d_14_4 ),
+	.COUT(\u_complex_mult/realo_d_15_4 ),
+	.SUM(realo[15])
+);
+defparam \u_complex_mult/realo_d_15_s .ALU_MODE=1;
+ALU \u_complex_mult/realo_d_16_s  (
+	.I0(\u_complex_mult/m [16]),
+	.I1(\u_complex_mult/n [16]),
+	.I3(GND),
+	.CIN(\u_complex_mult/realo_d_15_4 ),
+	.COUT(\u_complex_mult/realo_d_16_4 ),
+	.SUM(realo[16])
+);
+defparam \u_complex_mult/realo_d_16_s .ALU_MODE=1;
+ALU \u_complex_mult/realo_d_17_s  (
+	.I0(\u_complex_mult/m [17]),
+	.I1(\u_complex_mult/n [17]),
+	.I3(GND),
+	.CIN(\u_complex_mult/realo_d_16_4 ),
+	.COUT(\u_complex_mult/realo_d_17_4 ),
+	.SUM(realo[17])
+);
+defparam \u_complex_mult/realo_d_17_s .ALU_MODE=1;
+ALU \u_complex_mult/realo_d_18_s  (
+	.I0(\u_complex_mult/m [18]),
+	.I1(\u_complex_mult/n [18]),
+	.I3(GND),
+	.CIN(\u_complex_mult/realo_d_17_4 ),
+	.COUT(\u_complex_mult/realo_d_18_0_COUT ),
+	.SUM(realo[18])
+);
+defparam \u_complex_mult/realo_d_18_s .ALU_MODE=1;
+endmodule

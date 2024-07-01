@@ -1,0 +1,21 @@
+[General]
+ipc_version=4
+file=advanced_fir_filter
+module=Advanced_FIR_Filter_Top
+target_device=gw5a25a-000
+type=ad_fir
+version=1.0
+
+[Config]
+CHANNEL_N=2
+COEFFICIENT_FILE=D:/matlab/my_exam/coeff.dat
+COEFFWIDTH=16
+DisableIO=true
+FACTOR_NUMBER=1
+FIR_FILTER_TYPE=fir singlerate
+IDATAWIDTH=18
+LANG=0
+ODATAWIDTH=31
+Synthesis_tool=GowinSynthesis
+TAPS_NUMBER=22
+TDM_VALUE=1

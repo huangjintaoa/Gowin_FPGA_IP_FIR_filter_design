@@ -1,0 +1,17 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW5A-25A" pn="GW5A-LV25MG121NES">gw5a25a-000</Device>
+    <FileList>
+        <File path="src/advanced_fir_filter/advanced_fir_filter.v" type="file.verilog" enable="1"/>
+        <File path="src/complex_multiplier/complex_multiplier.v" type="file.verilog" enable="1"/>
+        <File path="src/dds/dds.v" type="file.verilog" enable="1"/>
+        <File path="src/dds_ii/dds_ii.v" type="file.verilog" enable="1"/>
+        <File path="src/fir_tb.v" type="file.verilog" enable="1"/>
+        <File path="src/fir_top.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_pll/gowin_pll.v" type="file.verilog" enable="1"/>
+        <File path="src/lab_fft.cst" type="file.cst" enable="1"/>
+    </FileList>
+</Project>

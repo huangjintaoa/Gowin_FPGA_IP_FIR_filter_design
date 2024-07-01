@@ -1,0 +1,40 @@
+//
+//Written by GowinSynthesis
+//Tool Version "V1.9.9"
+//Mon Jul  1 11:57:38 2024
+
+//Source file index table:
+//file0 "\F:/GOWIN/Project/lab_fft/src/fir_top.v"
+//file1 "\F:/GOWIN/Project/lab_fft/src/fir_tb.v"
+//file2 "\F:/GOWIN/Project/lab_fft/src/advanced_fir_filter/advanced_fir_filter.v"
+//file3 "\F:/GOWIN/Project/lab_fft/src/complex_multiplier/complex_multiplier.v"
+//file4 "\F:/GOWIN/Project/lab_fft/src/dds/dds.v"
+//file5 "\F:/GOWIN/Project/lab_fft/src/dds_ii/dds_ii.v"
+//file6 "\F:/GOWIN/Project/lab_fft/src/gowin_pll/gowin_pll.v"
+`timescale 100 ps/100 ps
+module fir_top (
+  sclk,
+  s_rst,
+  sign_led
+)
+;
+input sclk;
+input s_rst;
+output sign_led;
+wire VCC;
+wire GND;
+  TBUF sign_led_s0 (
+    .O(sign_led),
+    .I(GND),
+    .OEN(VCC) 
+);
+  VCC VCC_cZ (
+    .V(VCC)
+);
+  GND GND_cZ (
+    .G(GND)
+);
+  GSR GSR (
+    .GSRI(VCC) 
+);
+endmodule /* fir_top */

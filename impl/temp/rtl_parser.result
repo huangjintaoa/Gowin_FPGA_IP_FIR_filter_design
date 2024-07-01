@@ -1,0 +1,102 @@
+[
+ {
+  "InstFile" : "F:/GOWIN/Project/lab_fft/src/fir_tb.v",
+  "InstLine" : 6,
+  "InstName" : "tb_dds_fir",
+  "ModuleFile" : "F:/GOWIN/Project/lab_fft/src/fir_tb.v",
+  "ModuleLine" : 6,
+  "ModuleName" : "tb_dds_fir",
+  "SubInsts" : [
+   {
+    "InstFile" : "F:/GOWIN/Project/lab_fft/src/fir_tb.v",
+    "InstLine" : 22,
+    "InstName" : "fir_top_inst",
+    "ModuleFile" : "F:/GOWIN/Project/lab_fft/src/fir_top.v",
+    "ModuleLine" : 2,
+    "ModuleName" : "fir_top",
+    "SubInsts" : [
+     {
+      "InstFile" : "F:/GOWIN/Project/lab_fft/src/fir_top.v",
+      "InstLine" : 64,
+      "InstName" : "Gowin_PLL_inst",
+      "ModuleFile" : "F:/GOWIN/Project/lab_fft/src/gowin_pll/gowin_pll.v",
+      "ModuleLine" : 10,
+      "ModuleName" : "Gowin_PLL"
+     },
+     {
+      "InstFile" : "F:/GOWIN/Project/lab_fft/src/fir_top.v",
+      "InstLine" : 75,
+      "InstName" : "DDS_inst",
+      "ModuleFile" : "F:/GOWIN/Project/lab_fft/src/dds/dds.v",
+      "ModuleLine" : 675,
+      "ModuleName" : "DDS_Top",
+      "SubInsts" : [
+       {
+        "InstFile" : "F:/GOWIN/Project/lab_fft/src/dds/dds.v",
+        "InstLine" : 694,
+        "InstName" : "DDS",
+        "ModuleFile" : "F:/GOWIN/Project/lab_fft/src/dds/dds.v",
+        "ModuleLine" : 1,
+        "ModuleName" : "~DDS.DDS_Top"
+       }
+      ]
+     },
+     {
+      "InstFile" : "F:/GOWIN/Project/lab_fft/src/fir_top.v",
+      "InstLine" : 85,
+      "InstName" : "DDS_II_inst",
+      "ModuleFile" : "F:/GOWIN/Project/lab_fft/src/dds_ii/dds_ii.v",
+      "ModuleLine" : 1232,
+      "ModuleName" : "DDS_II_Top",
+      "SubInsts" : [
+       {
+        "InstFile" : "F:/GOWIN/Project/lab_fft/src/dds_ii/dds_ii.v",
+        "InstLine" : 1245,
+        "InstName" : "u_dds_compiler_core",
+        "ModuleFile" : "F:/GOWIN/Project/lab_fft/src/dds_ii/dds_ii.v",
+        "ModuleLine" : 1,
+        "ModuleName" : "~dds_ii_core.DDS_II_Top"
+       }
+      ]
+     },
+     {
+      "InstFile" : "F:/GOWIN/Project/lab_fft/src/fir_top.v",
+      "InstLine" : 93,
+      "InstName" : "Complex_Multiplier_inst",
+      "ModuleFile" : "F:/GOWIN/Project/lab_fft/src/complex_multiplier/complex_multiplier.v",
+      "ModuleLine" : 202,
+      "ModuleName" : "Complex_Multiplier_Top",
+      "SubInsts" : [
+       {
+        "InstFile" : "F:/GOWIN/Project/lab_fft/src/complex_multiplier/complex_multiplier.v",
+        "InstLine" : 225,
+        "InstName" : "u_complex_mult",
+        "ModuleFile" : "F:/GOWIN/Project/lab_fft/src/complex_multiplier/complex_multiplier.v",
+        "ModuleLine" : 1,
+        "ModuleName" : "~cmp_core.Complex_Multiplier_Top"
+       }
+      ]
+     },
+     {
+      "InstFile" : "F:/GOWIN/Project/lab_fft/src/fir_top.v",
+      "InstLine" : 121,
+      "InstName" : "Advanced_FIR_Filter_inst",
+      "ModuleFile" : "F:/GOWIN/Project/lab_fft/src/advanced_fir_filter/advanced_fir_filter.v",
+      "ModuleLine" : 19362,
+      "ModuleName" : "Advanced_FIR_Filter_Top",
+      "SubInsts" : [
+       {
+        "InstFile" : "F:/GOWIN/Project/lab_fft/src/advanced_fir_filter/advanced_fir_filter.v",
+        "InstLine" : 19385,
+        "InstName" : "advanced_fir_filter_inst",
+        "ModuleFile" : "F:/GOWIN/Project/lab_fft/src/advanced_fir_filter/advanced_fir_filter.v",
+        "ModuleLine" : 1,
+        "ModuleName" : "(advanced_fir_filter)/(Advanced_FIR_Filter_Top)"
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
+]

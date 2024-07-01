@@ -1,0 +1,41 @@
+{
+ "Device" : "GW5A-25A",
+ "Files" : [
+  {
+   "Path" : "F:/GOWIN/Project/lab_fft/src/fir_top.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "F:/GOWIN/Project/lab_fft/src/fir_tb.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "F:/GOWIN/Project/lab_fft/src/advanced_fir_filter/advanced_fir_filter.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "F:/GOWIN/Project/lab_fft/src/complex_multiplier/complex_multiplier.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "F:/GOWIN/Project/lab_fft/src/dds/dds.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "F:/GOWIN/Project/lab_fft/src/dds_ii/dds_ii.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "F:/GOWIN/Project/lab_fft/src/gowin_pll/gowin_pll.v",
+   "Type" : "verilog"
+  }
+ ],
+ "IncludePath" : [
+
+ ],
+ "LoopLimit" : 2000,
+ "ResultFile" : "F:/GOWIN/Project/lab_fft/impl/temp/rtl_parser.result",
+ "Top" : "fir_top",
+ "VerilogStd" : "sysv",
+ "VhdlStd" : "vhdl_93"
+}

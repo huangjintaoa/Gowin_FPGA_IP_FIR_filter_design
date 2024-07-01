@@ -1,0 +1,3755 @@
+//Copyright (C)2014-2023 Gowin Semiconductor Corporation.
+//All rights reserved.
+//File Title: Post-PnR Simulation Model file
+//Tool Version: V1.9.9 (64-bit)
+//Created Time: Sat Jun  8 20:52:40 2024
+
+`timescale 100 ps/100 ps
+module DDS_II_Top(
+	clk_i,
+	rst_n_i,
+	cosine_o,
+	data_valid_o
+);
+input clk_i;
+input rst_n_i;
+output [7:0] cosine_o;
+output data_valid_o;
+wire GND;
+wire VCC;
+wire clk_i;
+wire [7:0] cosine_o;
+wire data_valid_o;
+wire rst_n_i;
+wire \u_dds_compiler_core/w_phase_valid ;
+wire \u_dds_compiler_core/w0_phase_valid ;
+wire [0:0] \u_dds_compiler_core/w_chX_poff ;
+wire [2:0] \u_dds_compiler_core/w_chX_pinc ;
+wire [26:19] \u_dds_compiler_core/w0_phase_out ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n55_4 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n9_4 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n8_4 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n7_4 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n55_5 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/r1_phase_valid ;
+wire \u_dds_compiler_core/u_dds_pha_gen/r2_phase_valid ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n83_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n83_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n82_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n82_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n81_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n81_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n80_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n80_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n79_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n79_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n78_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n78_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n77_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n77_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n76_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n76_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n75_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n75_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n74_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n74_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n73_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n73_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n72_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n72_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n71_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n71_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n70_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n70_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n69_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n69_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n68_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n68_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n67_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n67_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n66_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n66_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n65_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n65_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n64_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n64_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n63_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n63_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n62_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n62_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n61_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n61_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n60_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n60_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n59_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n59_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n58_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n58_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n57_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n57_0_COUT ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n220_0_SUM ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n220_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n219_0_SUM ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n219_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n218_0_SUM ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n218_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n217_0_SUM ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n217_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n216_0_SUM ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n216_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n215_0_SUM ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n215_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n214_0_SUM ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n214_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n213_0_SUM ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n213_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n212_0_SUM ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n212_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n211_0_SUM ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n211_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n210_0_SUM ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n210_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n209_0_SUM ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n209_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n208_0_SUM ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n208_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n207_0_SUM ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n207_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n206_0_SUM ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n206_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n205_0_SUM ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n205_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n204_0_SUM ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n204_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n203_0_SUM ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n203_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n202_0_SUM ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n202_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n201_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n201_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n200_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n200_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n199_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n199_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n198_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n198_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n197_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n197_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n196_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n196_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n195_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n195_2 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n194_1 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n194_0_COUT ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n138_5 ;
+wire \u_dds_compiler_core/u_dds_pha_gen/n10_6 ;
+wire [3:0] \u_dds_compiler_core/u_dds_pha_gen/local_cnt ;
+wire [26:0] \u_dds_compiler_core/u_dds_pha_gen/accu_reg ;
+wire [26:26] \u_dds_compiler_core/u_dds_pha_gen/accu_off ;
+wire [26:19] \u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0] ;
+wire \u_dds_compiler_core/u_dds_lut_table/n477_3 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n478_3 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n479_3 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n480_3 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n205_16 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n206_27 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n206_29 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n206_31 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n206_33 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n207_27 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n207_29 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n207_31 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n207_33 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n208_27 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n208_29 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n208_31 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n208_33 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n209_27 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n209_29 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n209_31 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n209_33 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n210_27 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n210_29 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n210_31 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n210_33 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n211_27 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n211_29 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n211_31 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n211_33 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n212_21 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n477_4 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n205_17 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n205_18 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n205_19 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n205_20 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n206_34 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n206_35 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n206_36 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n207_34 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n207_35 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n208_34 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n208_35 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n209_34 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n209_35 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n210_34 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n210_35 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n211_34 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n211_35 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n212_22 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n205_21 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n205_22 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n205_23 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n205_24 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n205_25 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n205_26 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n206_37 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n206_38 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n205_27 ;
+wire \u_dds_compiler_core/u_dds_lut_table/r1_phase_valid ;
+wire \u_dds_compiler_core/u_dds_lut_table/n206_21 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n206_23 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n206_25 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n207_21 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n207_23 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n207_25 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n208_21 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n208_23 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n208_25 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n209_21 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n209_23 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n209_25 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n210_21 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n210_23 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n210_25 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n211_21 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n211_23 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n211_25 ;
+wire \u_dds_compiler_core/u_dds_lut_table/n481_5 ;
+wire [4:0] \u_dds_compiler_core/u_dds_lut_table/lut_addr ;
+wire [26:19] \u_dds_compiler_core/u_dds_lut_table/r1_addr ;
+wire [26:19] \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0] ;
+wire [7:0] \u_dds_compiler_core/u_dds_lut_table/pre_phase_valid ;
+wire [26:19] \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1] ;
+wire [26:19] \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2] ;
+wire [26:19] \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3] ;
+wire [26:19] \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4] ;
+wire [26:19] \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5] ;
+wire [26:19] \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6] ;
+wire [26:19] \u_dds_compiler_core/u_dds_lut_table/addr_dx_cos ;
+wire [6:0] \u_dds_compiler_core/u_dds_lut_table/pre_douta[0] ;
+wire [7:0] \u_dds_compiler_core/u_dds_lut_table/pre_doutb[0] ;
+wire [7:0] \u_dds_compiler_core/u_dds_lut_table/pre_douta[1] ;
+wire [6:0] \u_dds_compiler_core/u_dds_lut_table/pre_doutb[1] ;
+wire [6:0] \u_dds_compiler_core/u_dds_lut_table/pre_douta[2] ;
+wire [7:0] \u_dds_compiler_core/u_dds_lut_table/pre_doutb[2] ;
+wire [7:0] \u_dds_compiler_core/u_dds_lut_table/pre_douta[3] ;
+wire [6:0] \u_dds_compiler_core/u_dds_lut_table/pre_doutb[3] ;
+wire [6:0] \u_dds_compiler_core/u_dds_lut_table/pre_douta[4] ;
+wire [7:0] \u_dds_compiler_core/u_dds_lut_table/pre_doutb[4] ;
+wire [7:0] \u_dds_compiler_core/u_dds_lut_table/pre_douta[5] ;
+wire [6:0] \u_dds_compiler_core/u_dds_lut_table/pre_doutb[5] ;
+wire [6:0] \u_dds_compiler_core/u_dds_lut_table/pre_douta[6] ;
+wire [7:0] \u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] ;
+wire [6:0] \u_dds_compiler_core/u_dds_lut_table/rom_doutb ;
+wire [6:0] \u_dds_compiler_core/u_dds_lut_table/rom_douta ;
+wire \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1492 ;
+wire \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1494 ;
+wire \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1496 ;
+wire \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1498 ;
+wire \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1500 ;
+wire \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1502 ;
+wire \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1504 ;
+wire \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1506 ;
+wire \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1508 ;
+wire \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1510 ;
+wire \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1512 ;
+wire \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1514 ;
+wire \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1516 ;
+wire \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1519 ;
+wire \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1520 ;
+wire \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1521 ;
+wire \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1522 ;
+wire \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1523 ;
+wire \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1524 ;
+wire \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1525 ;
+wire \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1526 ;
+wire \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1527 ;
+wire \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1528 ;
+wire \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1529 ;
+wire \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1530 ;
+wire \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1531 ;
+wire \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1532 ;
+wire \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1533 ;
+wire \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1534 ;
+wire \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1535 ;
+VCC VCC_cZ (
+  .V(VCC)
+);
+GND GND_cZ (
+  .G(GND)
+);
+GSR GSR (
+	.GSRI(VCC)
+);
+DFFRE \u_dds_compiler_core/u_dds_pha_cfg/r_chX_poff_0_s0  (
+	.D(GND),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/w_chX_poff [0])
+);
+defparam \u_dds_compiler_core/u_dds_pha_cfg/r_chX_poff_0_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_cfg/r_chX_pinc_2_s0  (
+	.D(VCC),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/w_chX_pinc [2])
+);
+defparam \u_dds_compiler_core/u_dds_pha_cfg/r_chX_pinc_2_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_cfg/r_chX_pinc_0_s0  (
+	.D(GND),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/w_chX_pinc [0])
+);
+defparam \u_dds_compiler_core/u_dds_pha_cfg/r_chX_pinc_0_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_cfg/o_data_valid_s0  (
+	.D(rst_n_i),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/w_phase_valid )
+);
+defparam \u_dds_compiler_core/u_dds_pha_cfg/o_data_valid_s0 .INIT=1'b0;
+LUT4 \u_dds_compiler_core/u_dds_pha_gen/n55_s0  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/local_cnt [0]),
+	.I1(\u_dds_compiler_core/u_dds_pha_gen/local_cnt [1]),
+	.I2(\u_dds_compiler_core/u_dds_pha_gen/local_cnt [2]),
+	.I3(\u_dds_compiler_core/u_dds_pha_gen/n55_5 ),
+	.F(\u_dds_compiler_core/u_dds_pha_gen/n55_4 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n55_s0 .INIT=16'h0100;
+LUT2 \u_dds_compiler_core/u_dds_pha_gen/n9_s0  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/local_cnt [0]),
+	.I1(\u_dds_compiler_core/u_dds_pha_gen/local_cnt [1]),
+	.F(\u_dds_compiler_core/u_dds_pha_gen/n9_4 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n9_s0 .INIT=4'h6;
+LUT3 \u_dds_compiler_core/u_dds_pha_gen/n8_s0  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/local_cnt [0]),
+	.I1(\u_dds_compiler_core/u_dds_pha_gen/local_cnt [1]),
+	.I2(\u_dds_compiler_core/u_dds_pha_gen/local_cnt [2]),
+	.F(\u_dds_compiler_core/u_dds_pha_gen/n8_4 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n8_s0 .INIT=8'h78;
+LUT4 \u_dds_compiler_core/u_dds_pha_gen/n7_s0  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/local_cnt [0]),
+	.I1(\u_dds_compiler_core/u_dds_pha_gen/local_cnt [1]),
+	.I2(\u_dds_compiler_core/u_dds_pha_gen/local_cnt [2]),
+	.I3(\u_dds_compiler_core/u_dds_pha_gen/local_cnt [3]),
+	.F(\u_dds_compiler_core/u_dds_pha_gen/n7_4 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n7_s0 .INIT=16'h7F80;
+LUT2 \u_dds_compiler_core/u_dds_pha_gen/n55_s1  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/local_cnt [3]),
+	.I1(\u_dds_compiler_core/w_phase_valid ),
+	.F(\u_dds_compiler_core/u_dds_pha_gen/n55_5 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n55_s1 .INIT=4'h4;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/local_cnt_2_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n8_4 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/w_phase_valid ),
+	.RESET(\u_dds_compiler_core/u_dds_pha_gen/n55_4 ),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/local_cnt [2])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/local_cnt_2_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/local_cnt_1_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n9_4 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/w_phase_valid ),
+	.RESET(\u_dds_compiler_core/u_dds_pha_gen/n55_4 ),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/local_cnt [1])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/local_cnt_1_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/local_cnt_0_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n10_6 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/w_phase_valid ),
+	.RESET(\u_dds_compiler_core/u_dds_pha_gen/n55_4 ),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/local_cnt [0])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/local_cnt_0_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/accu_reg_26_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n57_1 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/u_dds_pha_gen/n55_4 ),
+	.RESET(\u_dds_compiler_core/u_dds_pha_gen/n138_5 ),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [26])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/accu_reg_26_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/accu_reg_25_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n58_1 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/u_dds_pha_gen/n55_4 ),
+	.RESET(\u_dds_compiler_core/u_dds_pha_gen/n138_5 ),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [25])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/accu_reg_25_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/accu_reg_24_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n59_1 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/u_dds_pha_gen/n55_4 ),
+	.RESET(\u_dds_compiler_core/u_dds_pha_gen/n138_5 ),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [24])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/accu_reg_24_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/accu_reg_23_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n60_1 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/u_dds_pha_gen/n55_4 ),
+	.RESET(\u_dds_compiler_core/u_dds_pha_gen/n138_5 ),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [23])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/accu_reg_23_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/accu_reg_22_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n61_1 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/u_dds_pha_gen/n55_4 ),
+	.RESET(\u_dds_compiler_core/u_dds_pha_gen/n138_5 ),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [22])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/accu_reg_22_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/accu_reg_21_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n62_1 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/u_dds_pha_gen/n55_4 ),
+	.RESET(\u_dds_compiler_core/u_dds_pha_gen/n138_5 ),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [21])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/accu_reg_21_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/accu_reg_20_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n63_1 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/u_dds_pha_gen/n55_4 ),
+	.RESET(\u_dds_compiler_core/u_dds_pha_gen/n138_5 ),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [20])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/accu_reg_20_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/accu_reg_19_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n64_1 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/u_dds_pha_gen/n55_4 ),
+	.RESET(\u_dds_compiler_core/u_dds_pha_gen/n138_5 ),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [19])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/accu_reg_19_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/accu_reg_18_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n65_1 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/u_dds_pha_gen/n55_4 ),
+	.RESET(\u_dds_compiler_core/u_dds_pha_gen/n138_5 ),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [18])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/accu_reg_18_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/accu_reg_17_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n66_1 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/u_dds_pha_gen/n55_4 ),
+	.RESET(\u_dds_compiler_core/u_dds_pha_gen/n138_5 ),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [17])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/accu_reg_17_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/accu_reg_16_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n67_1 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/u_dds_pha_gen/n55_4 ),
+	.RESET(\u_dds_compiler_core/u_dds_pha_gen/n138_5 ),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [16])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/accu_reg_16_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/accu_reg_15_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n68_1 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/u_dds_pha_gen/n55_4 ),
+	.RESET(\u_dds_compiler_core/u_dds_pha_gen/n138_5 ),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [15])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/accu_reg_15_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/accu_reg_14_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n69_1 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/u_dds_pha_gen/n55_4 ),
+	.RESET(\u_dds_compiler_core/u_dds_pha_gen/n138_5 ),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [14])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/accu_reg_14_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/accu_reg_13_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n70_1 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/u_dds_pha_gen/n55_4 ),
+	.RESET(\u_dds_compiler_core/u_dds_pha_gen/n138_5 ),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [13])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/accu_reg_13_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/accu_reg_12_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n71_1 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/u_dds_pha_gen/n55_4 ),
+	.RESET(\u_dds_compiler_core/u_dds_pha_gen/n138_5 ),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [12])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/accu_reg_12_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/accu_reg_11_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n72_1 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/u_dds_pha_gen/n55_4 ),
+	.RESET(\u_dds_compiler_core/u_dds_pha_gen/n138_5 ),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [11])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/accu_reg_11_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/accu_reg_10_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n73_1 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/u_dds_pha_gen/n55_4 ),
+	.RESET(\u_dds_compiler_core/u_dds_pha_gen/n138_5 ),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [10])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/accu_reg_10_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/accu_reg_9_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n74_1 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/u_dds_pha_gen/n55_4 ),
+	.RESET(\u_dds_compiler_core/u_dds_pha_gen/n138_5 ),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [9])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/accu_reg_9_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/accu_reg_8_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n75_1 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/u_dds_pha_gen/n55_4 ),
+	.RESET(\u_dds_compiler_core/u_dds_pha_gen/n138_5 ),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [8])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/accu_reg_8_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/accu_reg_7_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n76_1 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/u_dds_pha_gen/n55_4 ),
+	.RESET(\u_dds_compiler_core/u_dds_pha_gen/n138_5 ),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [7])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/accu_reg_7_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/accu_reg_6_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n77_1 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/u_dds_pha_gen/n55_4 ),
+	.RESET(\u_dds_compiler_core/u_dds_pha_gen/n138_5 ),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [6])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/accu_reg_6_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/accu_reg_5_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n78_1 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/u_dds_pha_gen/n55_4 ),
+	.RESET(\u_dds_compiler_core/u_dds_pha_gen/n138_5 ),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [5])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/accu_reg_5_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/accu_reg_4_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n79_1 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/u_dds_pha_gen/n55_4 ),
+	.RESET(\u_dds_compiler_core/u_dds_pha_gen/n138_5 ),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [4])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/accu_reg_4_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/accu_reg_3_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n80_1 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/u_dds_pha_gen/n55_4 ),
+	.RESET(\u_dds_compiler_core/u_dds_pha_gen/n138_5 ),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [3])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/accu_reg_3_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/accu_reg_2_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n81_1 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/u_dds_pha_gen/n55_4 ),
+	.RESET(\u_dds_compiler_core/u_dds_pha_gen/n138_5 ),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [2])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/accu_reg_2_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/accu_reg_1_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n82_1 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/u_dds_pha_gen/n55_4 ),
+	.RESET(\u_dds_compiler_core/u_dds_pha_gen/n138_5 ),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [1])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/accu_reg_1_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/accu_reg_0_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n83_1 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/u_dds_pha_gen/n55_4 ),
+	.RESET(\u_dds_compiler_core/u_dds_pha_gen/n138_5 ),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [0])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/accu_reg_0_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/accu_off_26_s0  (
+	.D(\u_dds_compiler_core/w_chX_poff [0]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/accu_off [26])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/accu_off_26_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0]_26_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n194_1 ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0] [26])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0]_26_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0]_25_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n195_1 ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0] [25])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0]_25_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0]_24_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n196_1 ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0] [24])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0]_24_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0]_23_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n197_1 ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0] [23])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0]_23_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0]_22_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n198_1 ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0] [22])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0]_22_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0]_21_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n199_1 ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0] [21])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0]_21_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0]_20_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n200_1 ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0] [20])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0]_20_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0]_19_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n201_1 ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0] [19])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0]_19_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/o_phase_out_26_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0] [26]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/w0_phase_out [26])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/o_phase_out_26_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/o_phase_out_25_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0] [25]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/w0_phase_out [25])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/o_phase_out_25_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/o_phase_out_24_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0] [24]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/w0_phase_out [24])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/o_phase_out_24_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/o_phase_out_23_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0] [23]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/w0_phase_out [23])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/o_phase_out_23_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/o_phase_out_22_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0] [22]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/w0_phase_out [22])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/o_phase_out_22_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/o_phase_out_21_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0] [21]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/w0_phase_out [21])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/o_phase_out_21_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/o_phase_out_20_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0] [20]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/w0_phase_out [20])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/o_phase_out_20_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/o_phase_out_19_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/true_accu_reg[0] [19]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/w0_phase_out [19])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/o_phase_out_19_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/r1_phase_valid_s0  (
+	.D(\u_dds_compiler_core/w_phase_valid ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/r1_phase_valid )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/r1_phase_valid_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/r2_phase_valid_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/r1_phase_valid ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/r2_phase_valid )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/r2_phase_valid_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/o_phase_valid_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/r2_phase_valid ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/w0_phase_valid )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/o_phase_valid_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_pha_gen/local_cnt_3_s0  (
+	.D(\u_dds_compiler_core/u_dds_pha_gen/n7_4 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/w_phase_valid ),
+	.RESET(\u_dds_compiler_core/u_dds_pha_gen/n55_4 ),
+	.Q(\u_dds_compiler_core/u_dds_pha_gen/local_cnt [3])
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/local_cnt_3_s0 .INIT=1'b0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n83_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [0]),
+	.I1(\u_dds_compiler_core/w_chX_pinc [0]),
+	.I3(GND),
+	.CIN(GND),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n83_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n83_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n83_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n82_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [1]),
+	.I1(\u_dds_compiler_core/w_chX_pinc [0]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n83_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n82_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n82_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n82_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n81_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [2]),
+	.I1(\u_dds_compiler_core/w_chX_pinc [2]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n82_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n81_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n81_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n81_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n80_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [3]),
+	.I1(\u_dds_compiler_core/w_chX_pinc [0]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n81_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n80_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n80_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n80_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n79_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [4]),
+	.I1(\u_dds_compiler_core/w_chX_pinc [0]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n80_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n79_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n79_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n79_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n78_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [5]),
+	.I1(\u_dds_compiler_core/w_chX_pinc [2]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n79_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n78_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n78_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n78_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n77_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [6]),
+	.I1(\u_dds_compiler_core/w_chX_pinc [0]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n78_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n77_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n77_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n77_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n76_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [7]),
+	.I1(\u_dds_compiler_core/w_chX_pinc [0]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n77_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n76_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n76_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n76_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n75_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [8]),
+	.I1(\u_dds_compiler_core/w_chX_pinc [0]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n76_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n75_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n75_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n75_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n74_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [9]),
+	.I1(\u_dds_compiler_core/w_chX_pinc [2]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n75_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n74_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n74_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n74_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n73_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [10]),
+	.I1(\u_dds_compiler_core/w_chX_pinc [2]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n74_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n73_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n73_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n73_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n72_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [11]),
+	.I1(\u_dds_compiler_core/w_chX_pinc [2]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n73_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n72_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n72_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n72_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n71_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [12]),
+	.I1(\u_dds_compiler_core/w_chX_pinc [0]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n72_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n71_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n71_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n71_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n70_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [13]),
+	.I1(\u_dds_compiler_core/w_chX_pinc [2]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n71_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n70_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n70_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n70_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n69_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [14]),
+	.I1(\u_dds_compiler_core/w_chX_pinc [2]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n70_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n69_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n69_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n69_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n68_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [15]),
+	.I1(\u_dds_compiler_core/w_chX_pinc [2]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n69_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n68_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n68_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n68_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n67_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [16]),
+	.I1(\u_dds_compiler_core/w_chX_pinc [2]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n68_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n67_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n67_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n67_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n66_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [17]),
+	.I1(\u_dds_compiler_core/w_chX_pinc [0]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n67_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n66_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n66_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n66_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n65_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [18]),
+	.I1(\u_dds_compiler_core/w_chX_pinc [0]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n66_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n65_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n65_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n65_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n64_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [19]),
+	.I1(\u_dds_compiler_core/w_chX_pinc [0]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n65_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n64_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n64_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n64_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n63_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [20]),
+	.I1(\u_dds_compiler_core/w_chX_pinc [2]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n64_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n63_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n63_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n63_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n62_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [21]),
+	.I1(\u_dds_compiler_core/w_chX_pinc [0]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n63_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n62_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n62_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n62_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n61_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [22]),
+	.I1(\u_dds_compiler_core/w_chX_pinc [2]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n62_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n61_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n61_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n61_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n60_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [23]),
+	.I1(\u_dds_compiler_core/w_chX_pinc [0]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n61_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n60_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n60_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n60_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n59_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [24]),
+	.I1(\u_dds_compiler_core/w_chX_pinc [0]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n60_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n59_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n59_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n59_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n58_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [25]),
+	.I1(\u_dds_compiler_core/w_chX_pinc [0]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n59_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n58_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n58_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n58_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n57_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [26]),
+	.I1(\u_dds_compiler_core/w_chX_pinc [0]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n58_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n57_0_COUT ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n57_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n57_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n220_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [0]),
+	.I1(\u_dds_compiler_core/u_dds_pha_gen/accu_off [26]),
+	.I3(GND),
+	.CIN(GND),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n220_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n220_0_SUM )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n220_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n219_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [1]),
+	.I1(\u_dds_compiler_core/u_dds_pha_gen/accu_off [26]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n220_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n219_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n219_0_SUM )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n219_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n218_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [2]),
+	.I1(\u_dds_compiler_core/u_dds_pha_gen/accu_off [26]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n219_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n218_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n218_0_SUM )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n218_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n217_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [3]),
+	.I1(\u_dds_compiler_core/u_dds_pha_gen/accu_off [26]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n218_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n217_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n217_0_SUM )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n217_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n216_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [4]),
+	.I1(\u_dds_compiler_core/u_dds_pha_gen/accu_off [26]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n217_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n216_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n216_0_SUM )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n216_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n215_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [5]),
+	.I1(\u_dds_compiler_core/u_dds_pha_gen/accu_off [26]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n216_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n215_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n215_0_SUM )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n215_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n214_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [6]),
+	.I1(\u_dds_compiler_core/u_dds_pha_gen/accu_off [26]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n215_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n214_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n214_0_SUM )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n214_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n213_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [7]),
+	.I1(\u_dds_compiler_core/u_dds_pha_gen/accu_off [26]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n214_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n213_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n213_0_SUM )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n213_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n212_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [8]),
+	.I1(\u_dds_compiler_core/u_dds_pha_gen/accu_off [26]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n213_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n212_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n212_0_SUM )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n212_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n211_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [9]),
+	.I1(\u_dds_compiler_core/u_dds_pha_gen/accu_off [26]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n212_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n211_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n211_0_SUM )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n211_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n210_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [10]),
+	.I1(\u_dds_compiler_core/u_dds_pha_gen/accu_off [26]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n211_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n210_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n210_0_SUM )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n210_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n209_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [11]),
+	.I1(\u_dds_compiler_core/u_dds_pha_gen/accu_off [26]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n210_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n209_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n209_0_SUM )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n209_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n208_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [12]),
+	.I1(\u_dds_compiler_core/u_dds_pha_gen/accu_off [26]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n209_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n208_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n208_0_SUM )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n208_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n207_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [13]),
+	.I1(\u_dds_compiler_core/u_dds_pha_gen/accu_off [26]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n208_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n207_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n207_0_SUM )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n207_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n206_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [14]),
+	.I1(\u_dds_compiler_core/u_dds_pha_gen/accu_off [26]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n207_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n206_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n206_0_SUM )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n206_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n205_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [15]),
+	.I1(\u_dds_compiler_core/u_dds_pha_gen/accu_off [26]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n206_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n205_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n205_0_SUM )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n205_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n204_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [16]),
+	.I1(\u_dds_compiler_core/u_dds_pha_gen/accu_off [26]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n205_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n204_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n204_0_SUM )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n204_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n203_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [17]),
+	.I1(\u_dds_compiler_core/u_dds_pha_gen/accu_off [26]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n204_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n203_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n203_0_SUM )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n203_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n202_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [18]),
+	.I1(\u_dds_compiler_core/u_dds_pha_gen/accu_off [26]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n203_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n202_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n202_0_SUM )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n202_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n201_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [19]),
+	.I1(\u_dds_compiler_core/u_dds_pha_gen/accu_off [26]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n202_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n201_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n201_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n201_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n200_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [20]),
+	.I1(\u_dds_compiler_core/u_dds_pha_gen/accu_off [26]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n201_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n200_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n200_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n200_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n199_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [21]),
+	.I1(\u_dds_compiler_core/u_dds_pha_gen/accu_off [26]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n200_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n199_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n199_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n199_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n198_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [22]),
+	.I1(\u_dds_compiler_core/u_dds_pha_gen/accu_off [26]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n199_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n198_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n198_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n198_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n197_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [23]),
+	.I1(\u_dds_compiler_core/u_dds_pha_gen/accu_off [26]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n198_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n197_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n197_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n197_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n196_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [24]),
+	.I1(\u_dds_compiler_core/u_dds_pha_gen/accu_off [26]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n197_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n196_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n196_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n196_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n195_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [25]),
+	.I1(\u_dds_compiler_core/u_dds_pha_gen/accu_off [26]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n196_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n195_2 ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n195_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n195_s .ALU_MODE=0;
+ALU \u_dds_compiler_core/u_dds_pha_gen/n194_s  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/accu_reg [26]),
+	.I1(\u_dds_compiler_core/u_dds_pha_gen/accu_off [26]),
+	.I3(GND),
+	.CIN(\u_dds_compiler_core/u_dds_pha_gen/n195_2 ),
+	.COUT(\u_dds_compiler_core/u_dds_pha_gen/n194_0_COUT ),
+	.SUM(\u_dds_compiler_core/u_dds_pha_gen/n194_1 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n194_s .ALU_MODE=0;
+INV \u_dds_compiler_core/u_dds_pha_gen/n138_s2  (
+	.I(rst_n_i),
+	.O(\u_dds_compiler_core/u_dds_pha_gen/n138_5 )
+);
+LUT1 \u_dds_compiler_core/u_dds_pha_gen/n10_s2  (
+	.I0(\u_dds_compiler_core/u_dds_pha_gen/local_cnt [0]),
+	.F(\u_dds_compiler_core/u_dds_pha_gen/n10_6 )
+);
+defparam \u_dds_compiler_core/u_dds_pha_gen/n10_s2 .INIT=2'h1;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n477_s0  (
+	.I0(\u_dds_compiler_core/w0_phase_out [24]),
+	.I1(\u_dds_compiler_core/w0_phase_out [22]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/n477_4 ),
+	.I3(\u_dds_compiler_core/w0_phase_out [23]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n477_3 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n477_s0 .INIT=16'hF40B;
+LUT2 \u_dds_compiler_core/u_dds_lut_table/n478_s0  (
+	.I0(\u_dds_compiler_core/w0_phase_out [22]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n477_4 ),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n478_3 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n478_s0 .INIT=4'h9;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n479_s0  (
+	.I0(\u_dds_compiler_core/w0_phase_out [20]),
+	.I1(\u_dds_compiler_core/w0_phase_out [19]),
+	.I2(\u_dds_compiler_core/w0_phase_out [24]),
+	.I3(\u_dds_compiler_core/w0_phase_out [21]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n479_3 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n479_s0 .INIT=16'h0EF1;
+LUT3 \u_dds_compiler_core/u_dds_lut_table/n480_s0  (
+	.I0(\u_dds_compiler_core/w0_phase_out [24]),
+	.I1(\u_dds_compiler_core/w0_phase_out [19]),
+	.I2(\u_dds_compiler_core/w0_phase_out [20]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n480_3 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n480_s0 .INIT=8'h4B;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n205_s11  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n205_17 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n205_18 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/n205_19 ),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/n205_20 ),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n205_16 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n205_s11 .INIT=16'hFCFA;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n206_s29  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [6]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n206_34 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [6]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [24]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n206_27 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n206_s29 .INIT=16'hF0EE;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n206_s30  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n206_34 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n206_35 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/n206_36 ),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [24]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n206_29 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n206_s30 .INIT=16'hF044;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n206_s31  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n206_34 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n206_36 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/n206_35 ),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [24]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n206_31 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n206_s31 .INIT=16'hF044;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n206_s32  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n206_34 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [6]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [6]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [24]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n206_33 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n206_s32 .INIT=16'hF044;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n207_s26  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [5]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n206_34 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [5]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [24]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n207_27 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n207_s26 .INIT=16'hF0EE;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n207_s27  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n206_34 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n207_34 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/n207_35 ),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [24]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n207_29 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n207_s27 .INIT=16'hF044;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n207_s28  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n206_34 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n207_35 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/n207_34 ),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [24]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n207_31 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n207_s28 .INIT=16'hF044;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n207_s29  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n206_34 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [5]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [5]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [24]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n207_33 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n207_s29 .INIT=16'hF044;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n208_s26  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [4]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n206_34 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [4]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [24]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n208_27 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n208_s26 .INIT=16'hF0EE;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n208_s27  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n206_34 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n208_34 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/n208_35 ),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [24]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n208_29 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n208_s27 .INIT=16'hF044;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n208_s28  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n206_34 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n208_35 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/n208_34 ),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [24]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n208_31 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n208_s28 .INIT=16'hF044;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n208_s29  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n206_34 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [4]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [4]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [24]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n208_33 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n208_s29 .INIT=16'hF044;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n209_s26  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [3]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n206_34 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [3]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [24]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n209_27 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n209_s26 .INIT=16'hF0EE;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n209_s27  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n206_34 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n209_34 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/n209_35 ),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [24]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n209_29 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n209_s27 .INIT=16'hF044;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n209_s28  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n206_34 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n209_35 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/n209_34 ),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [24]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n209_31 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n209_s28 .INIT=16'hF044;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n209_s29  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n206_34 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [3]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [3]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [24]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n209_33 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n209_s29 .INIT=16'hF044;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n210_s26  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [2]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n206_34 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [2]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [24]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n210_27 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n210_s26 .INIT=16'hF0EE;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n210_s27  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n206_34 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n210_34 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/n210_35 ),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [24]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n210_29 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n210_s27 .INIT=16'hF044;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n210_s28  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n206_34 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n210_35 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/n210_34 ),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [24]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n210_31 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n210_s28 .INIT=16'hF044;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n210_s29  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n206_34 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [2]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [2]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [24]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n210_33 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n210_s29 .INIT=16'hF044;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n211_s26  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [1]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n206_34 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [1]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [24]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n211_27 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n211_s26 .INIT=16'hF0EE;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n211_s27  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n206_34 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n211_34 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/n211_35 ),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [24]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n211_29 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n211_s27 .INIT=16'h0F11;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n211_s28  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n206_34 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n211_35 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/n211_34 ),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [24]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n211_31 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n211_s28 .INIT=16'h0FBB;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n211_s29  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n206_34 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [1]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [1]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [24]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n211_33 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n211_s29 .INIT=16'hF044;
+LUT3 \u_dds_compiler_core/u_dds_lut_table/n212_s15  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n206_34 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [24]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/n212_22 ),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n212_21 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n212_s15 .INIT=8'h0D;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n477_s1  (
+	.I0(\u_dds_compiler_core/w0_phase_out [21]),
+	.I1(\u_dds_compiler_core/w0_phase_out [20]),
+	.I2(\u_dds_compiler_core/w0_phase_out [19]),
+	.I3(\u_dds_compiler_core/w0_phase_out [24]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n477_4 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n477_s1 .INIT=16'h00FE;
+LUT3 \u_dds_compiler_core/u_dds_lut_table/n205_s12  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n205_21 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n205_22 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [7]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n205_17 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n205_s12 .INIT=8'h87;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n205_s13  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [24]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n205_23 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [25]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [26]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n205_18 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n205_s13 .INIT=16'h0D00;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n205_s14  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n205_24 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n205_25 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [24]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/n206_34 ),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n205_19 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n205_s14 .INIT=16'hC0CE;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n205_s15  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n205_26 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n206_34 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/n205_17 ),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [24]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n205_20 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n205_s15 .INIT=16'h5FFC;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n206_s22  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [19]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [20]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [21]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/n206_37 ),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n206_34 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n206_s22 .INIT=16'h0100;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n206_s23  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [4]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [5]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/n206_38 ),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [6]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n206_35 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n206_s23 .INIT=16'h10EF;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n206_s24  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [4]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [5]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/n205_21 ),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [6]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n206_36 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n206_s24 .INIT=16'h10EF;
+LUT3 \u_dds_compiler_core/u_dds_lut_table/n207_s22  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [4]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n206_38 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [5]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n207_34 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n207_s22 .INIT=8'h4B;
+LUT3 \u_dds_compiler_core/u_dds_lut_table/n207_s23  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [4]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n205_21 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [5]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n207_35 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n207_s23 .INIT=8'h4B;
+LUT2 \u_dds_compiler_core/u_dds_lut_table/n208_s22  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [4]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n206_38 ),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n208_34 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n208_s22 .INIT=4'h9;
+LUT2 \u_dds_compiler_core/u_dds_lut_table/n208_s23  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [4]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n205_21 ),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n208_35 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n208_s23 .INIT=4'h9;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n209_s22  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [0]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [1]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [2]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [3]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n209_34 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n209_s22 .INIT=16'h01FE;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n209_s23  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [0]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [1]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [2]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [3]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n209_35 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n209_s23 .INIT=16'h01FE;
+LUT3 \u_dds_compiler_core/u_dds_lut_table/n210_s22  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [0]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [1]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [2]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n210_34 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n210_s22 .INIT=8'h1E;
+LUT3 \u_dds_compiler_core/u_dds_lut_table/n210_s23  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [0]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [1]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [2]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n210_35 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n210_s23 .INIT=8'h1E;
+LUT2 \u_dds_compiler_core/u_dds_lut_table/n211_s22  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [0]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [1]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n211_34 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n211_s22 .INIT=4'h9;
+LUT2 \u_dds_compiler_core/u_dds_lut_table/n211_s23  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [0]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [1]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n211_35 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n211_s23 .INIT=4'h9;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n212_s16  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [0]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [0]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [24]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [25]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n212_22 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n212_s16 .INIT=16'h3553;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n205_s16  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [0]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [1]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [2]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [3]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n205_21 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n205_s16 .INIT=16'h0001;
+LUT3 \u_dds_compiler_core/u_dds_lut_table/n205_s17  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [4]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [5]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [6]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n205_22 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n205_s17 .INIT=8'h01;
+LUT3 \u_dds_compiler_core/u_dds_lut_table/n205_s18  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n206_38 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n205_27 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [7]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n205_23 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n205_s18 .INIT=8'h87;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n205_s19  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n206_38 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n205_27 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [7]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/n205_26 ),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n205_24 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n205_s19 .INIT=16'h8700;
+LUT3 \u_dds_compiler_core/u_dds_lut_table/n205_s20  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [25]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [26]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [7]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n205_25 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n205_s20 .INIT=8'h90;
+LUT2 \u_dds_compiler_core/u_dds_lut_table/n205_s21  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [26]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [25]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n205_26 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n205_s21 .INIT=4'h4;
+LUT2 \u_dds_compiler_core/u_dds_lut_table/n206_s25  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [22]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [23]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n206_37 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n206_s25 .INIT=4'h1;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/n206_s26  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [0]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [1]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [2]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [3]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n206_38 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n206_s26 .INIT=16'h0001;
+LUT3 \u_dds_compiler_core/u_dds_lut_table/n205_s22  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [4]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [5]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [6]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n205_27 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n205_s22 .INIT=8'h01;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/o_cosine_6_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/n206_21 ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(cosine_o[6])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/o_cosine_6_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/o_cosine_5_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/n207_21 ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(cosine_o[5])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/o_cosine_5_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/o_cosine_4_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/n208_21 ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(cosine_o[4])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/o_cosine_4_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/o_cosine_3_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/n209_21 ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(cosine_o[3])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/o_cosine_3_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/o_cosine_2_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/n210_21 ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(cosine_o[2])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/o_cosine_2_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/o_cosine_1_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/n211_21 ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(cosine_o[1])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/o_cosine_1_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/o_cosine_0_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/n212_21 ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(cosine_o[0])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/o_cosine_0_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/lut_addr_4_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/n477_3 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/w0_phase_valid ),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/lut_addr [4])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/lut_addr_4_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/lut_addr_3_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/n478_3 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/w0_phase_valid ),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/lut_addr [3])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/lut_addr_3_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/lut_addr_2_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/n479_3 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/w0_phase_valid ),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/lut_addr [2])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/lut_addr_2_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/lut_addr_1_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/n480_3 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/w0_phase_valid ),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/lut_addr [1])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/lut_addr_1_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/lut_addr_0_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/n481_5 ),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/w0_phase_valid ),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/lut_addr [0])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/lut_addr_0_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/r1_addr_26_s0  (
+	.D(\u_dds_compiler_core/w0_phase_out [26]),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/w0_phase_valid ),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/r1_addr [26])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/r1_addr_26_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/r1_addr_25_s0  (
+	.D(\u_dds_compiler_core/w0_phase_out [25]),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/w0_phase_valid ),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/r1_addr [25])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/r1_addr_25_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/r1_addr_24_s0  (
+	.D(\u_dds_compiler_core/w0_phase_out [24]),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/w0_phase_valid ),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/r1_addr [24])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/r1_addr_24_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/r1_addr_23_s0  (
+	.D(\u_dds_compiler_core/w0_phase_out [23]),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/w0_phase_valid ),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/r1_addr [23])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/r1_addr_23_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/r1_addr_22_s0  (
+	.D(\u_dds_compiler_core/w0_phase_out [22]),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/w0_phase_valid ),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/r1_addr [22])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/r1_addr_22_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/r1_addr_21_s0  (
+	.D(\u_dds_compiler_core/w0_phase_out [21]),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/w0_phase_valid ),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/r1_addr [21])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/r1_addr_21_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/r1_addr_20_s0  (
+	.D(\u_dds_compiler_core/w0_phase_out [20]),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/w0_phase_valid ),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/r1_addr [20])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/r1_addr_20_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/r1_addr_19_s0  (
+	.D(\u_dds_compiler_core/w0_phase_out [19]),
+	.CLK(clk_i),
+	.CE(\u_dds_compiler_core/w0_phase_valid ),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/r1_addr [19])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/r1_addr_19_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/r1_phase_valid_s0  (
+	.D(\u_dds_compiler_core/w0_phase_valid ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/r1_phase_valid )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/r1_phase_valid_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0]_26_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/r1_addr [26]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0] [26])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0]_26_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0]_25_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/r1_addr [25]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0] [25])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0]_25_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0]_24_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/r1_addr [24]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0] [24])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0]_24_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0]_23_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/r1_addr [23]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0] [23])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0]_23_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0]_22_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/r1_addr [22]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0] [22])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0]_22_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0]_21_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/r1_addr [21]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0] [21])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0]_21_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0]_20_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/r1_addr [20]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0] [20])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0]_20_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0]_19_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/r1_addr [19]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0] [19])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0]_19_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_phase_valid_0_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/r1_phase_valid ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_phase_valid [0])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_phase_valid_0_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1]_26_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0] [26]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1] [26])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1]_26_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1]_25_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0] [25]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1] [25])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1]_25_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1]_24_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0] [24]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1] [24])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1]_24_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1]_23_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0] [23]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1] [23])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1]_23_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1]_22_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0] [22]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1] [22])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1]_22_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1]_21_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0] [21]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1] [21])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1]_21_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1]_20_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0] [20]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1] [20])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1]_20_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1]_19_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[0] [19]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1] [19])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1]_19_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_phase_valid_1_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_phase_valid [0]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_phase_valid [1])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_phase_valid_1_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2]_26_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1] [26]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2] [26])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2]_26_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2]_25_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1] [25]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2] [25])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2]_25_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2]_24_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1] [24]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2] [24])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2]_24_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2]_23_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1] [23]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2] [23])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2]_23_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2]_22_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1] [22]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2] [22])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2]_22_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2]_21_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1] [21]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2] [21])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2]_21_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2]_20_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1] [20]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2] [20])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2]_20_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2]_19_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[1] [19]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2] [19])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2]_19_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_phase_valid_2_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_phase_valid [1]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_phase_valid [2])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_phase_valid_2_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3]_26_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2] [26]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3] [26])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3]_26_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3]_25_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2] [25]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3] [25])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3]_25_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3]_24_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2] [24]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3] [24])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3]_24_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3]_23_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2] [23]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3] [23])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3]_23_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3]_22_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2] [22]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3] [22])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3]_22_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3]_21_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2] [21]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3] [21])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3]_21_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3]_20_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2] [20]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3] [20])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3]_20_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3]_19_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[2] [19]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3] [19])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3]_19_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_phase_valid_3_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_phase_valid [2]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_phase_valid [3])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_phase_valid_3_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4]_26_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3] [26]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4] [26])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4]_26_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4]_25_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3] [25]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4] [25])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4]_25_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4]_24_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3] [24]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4] [24])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4]_24_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4]_23_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3] [23]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4] [23])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4]_23_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4]_22_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3] [22]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4] [22])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4]_22_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4]_21_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3] [21]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4] [21])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4]_21_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4]_20_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3] [20]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4] [20])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4]_20_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4]_19_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[3] [19]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4] [19])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4]_19_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_phase_valid_4_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_phase_valid [3]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_phase_valid [4])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_phase_valid_4_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5]_26_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4] [26]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5] [26])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5]_26_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5]_25_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4] [25]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5] [25])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5]_25_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5]_24_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4] [24]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5] [24])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5]_24_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5]_23_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4] [23]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5] [23])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5]_23_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5]_22_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4] [22]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5] [22])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5]_22_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5]_21_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4] [21]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5] [21])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5]_21_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5]_20_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4] [20]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5] [20])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5]_20_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5]_19_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[4] [19]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5] [19])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5]_19_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_phase_valid_5_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_phase_valid [4]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_phase_valid [5])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_phase_valid_5_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6]_26_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5] [26]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6] [26])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6]_26_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6]_25_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5] [25]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6] [25])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6]_25_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6]_24_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5] [24]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6] [24])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6]_24_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6]_23_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5] [23]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6] [23])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6]_23_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6]_22_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5] [22]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6] [22])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6]_22_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6]_21_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5] [21]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6] [21])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6]_21_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6]_20_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5] [20]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6] [20])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6]_20_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6]_19_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[5] [19]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6] [19])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6]_19_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_phase_valid_6_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_phase_valid [5]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_phase_valid [6])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_phase_valid_6_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_phase_valid_7_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_phase_valid [6]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_phase_valid [7])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_phase_valid_7_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_phase_valid_8_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_phase_valid [7]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(data_valid_o)
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_phase_valid_8_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/addr_dx_cos_26_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6] [26]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [26])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/addr_dx_cos_26_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/addr_dx_cos_25_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6] [25]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [25])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/addr_dx_cos_25_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/addr_dx_cos_24_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6] [24]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [24])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/addr_dx_cos_24_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/addr_dx_cos_23_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6] [23]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [23])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/addr_dx_cos_23_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/addr_dx_cos_22_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6] [22]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [22])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/addr_dx_cos_22_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/addr_dx_cos_21_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6] [21]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [21])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/addr_dx_cos_21_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/addr_dx_cos_20_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6] [20]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [20])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/addr_dx_cos_20_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/addr_dx_cos_19_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_addr_dx[6] [19]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [19])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/addr_dx_cos_19_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[0]_6_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/rom_douta [6]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[0] [6])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[0]_6_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[0]_5_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/rom_douta [5]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[0] [5])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[0]_5_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[0]_4_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/rom_douta [4]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[0] [4])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[0]_4_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[0]_3_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/rom_douta [3]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[0] [3])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[0]_3_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[0]_2_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/rom_douta [2]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[0] [2])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[0]_2_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[0]_1_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/rom_douta [1]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[0] [1])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[0]_1_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[0]_0_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/rom_douta [0]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[0] [0])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[0]_0_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[0]_7_s0  (
+	.D(GND),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[0] [7])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[0]_7_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[0]_6_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/rom_doutb [6]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[0] [6])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[0]_6_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[0]_5_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/rom_doutb [5]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[0] [5])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[0]_5_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[0]_4_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/rom_doutb [4]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[0] [4])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[0]_4_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[0]_3_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/rom_doutb [3]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[0] [3])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[0]_3_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[0]_2_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/rom_doutb [2]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[0] [2])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[0]_2_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[0]_1_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/rom_doutb [1]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[0] [1])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[0]_1_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[0]_0_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/rom_doutb [0]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[0] [0])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[0]_0_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[1]_7_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[0] [7]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[1] [7])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[1]_7_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[1]_6_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[0] [6]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[1] [6])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[1]_6_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[1]_5_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[0] [5]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[1] [5])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[1]_5_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[1]_4_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[0] [4]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[1] [4])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[1]_4_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[1]_3_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[0] [3]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[1] [3])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[1]_3_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[1]_2_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[0] [2]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[1] [2])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[1]_2_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[1]_1_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[0] [1]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[1] [1])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[1]_1_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[1]_0_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[0] [0]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[1] [0])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[1]_0_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[1]_6_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[0] [6]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[1] [6])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[1]_6_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[1]_5_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[0] [5]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[1] [5])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[1]_5_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[1]_4_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[0] [4]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[1] [4])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[1]_4_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[1]_3_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[0] [3]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[1] [3])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[1]_3_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[1]_2_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[0] [2]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[1] [2])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[1]_2_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[1]_1_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[0] [1]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[1] [1])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[1]_1_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[1]_0_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[0] [0]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[1] [0])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[1]_0_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[2]_6_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[1] [6]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[2] [6])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[2]_6_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[2]_5_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[1] [5]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[2] [5])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[2]_5_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[2]_4_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[1] [4]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[2] [4])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[2]_4_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[2]_3_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[1] [3]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[2] [3])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[2]_3_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[2]_2_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[1] [2]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[2] [2])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[2]_2_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[2]_1_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[1] [1]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[2] [1])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[2]_1_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[2]_0_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[1] [0]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[2] [0])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[2]_0_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[2]_7_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[1] [7]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[2] [7])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[2]_7_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[2]_6_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[1] [6]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[2] [6])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[2]_6_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[2]_5_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[1] [5]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[2] [5])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[2]_5_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[2]_4_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[1] [4]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[2] [4])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[2]_4_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[2]_3_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[1] [3]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[2] [3])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[2]_3_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[2]_2_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[1] [2]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[2] [2])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[2]_2_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[2]_1_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[1] [1]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[2] [1])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[2]_1_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[2]_0_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[1] [0]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[2] [0])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[2]_0_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[3]_7_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[2] [7]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[3] [7])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[3]_7_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[3]_6_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[2] [6]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[3] [6])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[3]_6_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[3]_5_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[2] [5]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[3] [5])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[3]_5_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[3]_4_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[2] [4]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[3] [4])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[3]_4_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[3]_3_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[2] [3]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[3] [3])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[3]_3_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[3]_2_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[2] [2]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[3] [2])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[3]_2_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[3]_1_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[2] [1]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[3] [1])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[3]_1_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[3]_0_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[2] [0]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[3] [0])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[3]_0_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[3]_6_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[2] [6]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[3] [6])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[3]_6_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[3]_5_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[2] [5]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[3] [5])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[3]_5_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[3]_4_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[2] [4]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[3] [4])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[3]_4_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[3]_3_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[2] [3]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[3] [3])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[3]_3_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[3]_2_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[2] [2]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[3] [2])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[3]_2_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[3]_1_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[2] [1]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[3] [1])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[3]_1_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[3]_0_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[2] [0]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[3] [0])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[3]_0_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[4]_6_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[3] [6]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[4] [6])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[4]_6_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[4]_5_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[3] [5]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[4] [5])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[4]_5_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[4]_4_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[3] [4]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[4] [4])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[4]_4_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[4]_3_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[3] [3]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[4] [3])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[4]_3_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[4]_2_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[3] [2]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[4] [2])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[4]_2_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[4]_1_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[3] [1]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[4] [1])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[4]_1_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[4]_0_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[3] [0]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[4] [0])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[4]_0_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[4]_7_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[3] [7]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[4] [7])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[4]_7_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[4]_6_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[3] [6]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[4] [6])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[4]_6_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[4]_5_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[3] [5]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[4] [5])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[4]_5_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[4]_4_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[3] [4]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[4] [4])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[4]_4_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[4]_3_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[3] [3]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[4] [3])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[4]_3_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[4]_2_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[3] [2]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[4] [2])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[4]_2_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[4]_1_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[3] [1]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[4] [1])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[4]_1_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[4]_0_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[3] [0]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[4] [0])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[4]_0_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[5]_7_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[4] [7]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[5] [7])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[5]_7_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[5]_6_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[4] [6]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[5] [6])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[5]_6_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[5]_5_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[4] [5]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[5] [5])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[5]_5_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[5]_4_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[4] [4]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[5] [4])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[5]_4_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[5]_3_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[4] [3]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[5] [3])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[5]_3_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[5]_2_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[4] [2]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[5] [2])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[5]_2_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[5]_1_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[4] [1]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[5] [1])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[5]_1_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[5]_0_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[4] [0]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[5] [0])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[5]_0_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[5]_6_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[4] [6]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[5] [6])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[5]_6_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[5]_5_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[4] [5]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[5] [5])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[5]_5_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[5]_4_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[4] [4]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[5] [4])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[5]_4_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[5]_3_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[4] [3]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[5] [3])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[5]_3_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[5]_2_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[4] [2]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[5] [2])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[5]_2_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[5]_1_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[4] [1]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[5] [1])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[5]_1_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[5]_0_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[4] [0]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[5] [0])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[5]_0_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[6]_6_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[5] [6]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [6])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[6]_6_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[6]_5_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[5] [5]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [5])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[6]_5_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[6]_4_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[5] [4]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [4])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[6]_4_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[6]_3_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[5] [3]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [3])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[6]_3_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[6]_2_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[5] [2]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [2])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[6]_2_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[6]_1_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[5] [1]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [1])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[6]_1_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_douta[6]_0_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[5] [0]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_douta[6] [0])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_douta[6]_0_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[6]_7_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_douta[5] [7]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [7])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[6]_7_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[6]_6_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[5] [6]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [6])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[6]_6_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[6]_5_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[5] [5]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [5])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[6]_5_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[6]_4_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[5] [4]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [4])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[6]_4_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[6]_3_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[5] [3]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [3])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[6]_3_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[6]_2_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[5] [2]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [2])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[6]_2_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[6]_1_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[5] [1]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [1])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[6]_1_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/pre_doutb[6]_0_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[5] [0]),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/pre_doutb[6] [0])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/pre_doutb[6]_0_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/o_cosine_7_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/n205_16 ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(cosine_o[7])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/o_cosine_7_s0 .INIT=1'b0;
+MUX2_LUT6 \u_dds_compiler_core/u_dds_lut_table/n206_s15  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n206_23 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n206_25 ),
+	.S0(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [26]),
+	.O(\u_dds_compiler_core/u_dds_lut_table/n206_21 )
+);
+MUX2_LUT5 \u_dds_compiler_core/u_dds_lut_table/n206_s27  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n206_27 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n206_29 ),
+	.S0(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [25]),
+	.O(\u_dds_compiler_core/u_dds_lut_table/n206_23 )
+);
+MUX2_LUT5 \u_dds_compiler_core/u_dds_lut_table/n206_s28  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n206_31 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n206_33 ),
+	.S0(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [25]),
+	.O(\u_dds_compiler_core/u_dds_lut_table/n206_25 )
+);
+MUX2_LUT6 \u_dds_compiler_core/u_dds_lut_table/n207_s15  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n207_23 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n207_25 ),
+	.S0(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [26]),
+	.O(\u_dds_compiler_core/u_dds_lut_table/n207_21 )
+);
+MUX2_LUT5 \u_dds_compiler_core/u_dds_lut_table/n207_s24  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n207_27 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n207_29 ),
+	.S0(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [25]),
+	.O(\u_dds_compiler_core/u_dds_lut_table/n207_23 )
+);
+MUX2_LUT5 \u_dds_compiler_core/u_dds_lut_table/n207_s25  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n207_31 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n207_33 ),
+	.S0(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [25]),
+	.O(\u_dds_compiler_core/u_dds_lut_table/n207_25 )
+);
+MUX2_LUT6 \u_dds_compiler_core/u_dds_lut_table/n208_s15  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n208_23 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n208_25 ),
+	.S0(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [26]),
+	.O(\u_dds_compiler_core/u_dds_lut_table/n208_21 )
+);
+MUX2_LUT5 \u_dds_compiler_core/u_dds_lut_table/n208_s24  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n208_27 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n208_29 ),
+	.S0(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [25]),
+	.O(\u_dds_compiler_core/u_dds_lut_table/n208_23 )
+);
+MUX2_LUT5 \u_dds_compiler_core/u_dds_lut_table/n208_s25  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n208_31 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n208_33 ),
+	.S0(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [25]),
+	.O(\u_dds_compiler_core/u_dds_lut_table/n208_25 )
+);
+MUX2_LUT6 \u_dds_compiler_core/u_dds_lut_table/n209_s15  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n209_23 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n209_25 ),
+	.S0(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [26]),
+	.O(\u_dds_compiler_core/u_dds_lut_table/n209_21 )
+);
+MUX2_LUT5 \u_dds_compiler_core/u_dds_lut_table/n209_s24  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n209_27 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n209_29 ),
+	.S0(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [25]),
+	.O(\u_dds_compiler_core/u_dds_lut_table/n209_23 )
+);
+MUX2_LUT5 \u_dds_compiler_core/u_dds_lut_table/n209_s25  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n209_31 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n209_33 ),
+	.S0(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [25]),
+	.O(\u_dds_compiler_core/u_dds_lut_table/n209_25 )
+);
+MUX2_LUT6 \u_dds_compiler_core/u_dds_lut_table/n210_s15  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n210_23 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n210_25 ),
+	.S0(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [26]),
+	.O(\u_dds_compiler_core/u_dds_lut_table/n210_21 )
+);
+MUX2_LUT5 \u_dds_compiler_core/u_dds_lut_table/n210_s24  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n210_27 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n210_29 ),
+	.S0(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [25]),
+	.O(\u_dds_compiler_core/u_dds_lut_table/n210_23 )
+);
+MUX2_LUT5 \u_dds_compiler_core/u_dds_lut_table/n210_s25  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n210_31 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n210_33 ),
+	.S0(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [25]),
+	.O(\u_dds_compiler_core/u_dds_lut_table/n210_25 )
+);
+MUX2_LUT6 \u_dds_compiler_core/u_dds_lut_table/n211_s15  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n211_23 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n211_25 ),
+	.S0(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [26]),
+	.O(\u_dds_compiler_core/u_dds_lut_table/n211_21 )
+);
+MUX2_LUT5 \u_dds_compiler_core/u_dds_lut_table/n211_s24  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n211_27 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n211_29 ),
+	.S0(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [25]),
+	.O(\u_dds_compiler_core/u_dds_lut_table/n211_23 )
+);
+MUX2_LUT5 \u_dds_compiler_core/u_dds_lut_table/n211_s25  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/n211_31 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/n211_33 ),
+	.S0(\u_dds_compiler_core/u_dds_lut_table/addr_dx_cos [25]),
+	.O(\u_dds_compiler_core/u_dds_lut_table/n211_25 )
+);
+LUT1 \u_dds_compiler_core/u_dds_lut_table/n481_s2  (
+	.I0(\u_dds_compiler_core/w0_phase_out [19]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/n481_5 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/n481_s2 .INIT=2'h1;
+LUT3 \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1162  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1519 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1520 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/lut_addr [0]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1492 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1162 .INIT=8'hC5;
+LUT3 \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1163  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1521 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1522 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/lut_addr [0]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1494 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1163 .INIT=8'hAC;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1164  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/lut_addr [1]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1523 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/lut_addr [3]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/lut_addr [2]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1496 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1164 .INIT=16'hCD43;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1165  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/lut_addr [3]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/lut_addr [4]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/lut_addr [2]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1523 ),
+	.F(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1498 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1165 .INIT=16'hD3F7;
+LUT3 \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1166  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1524 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1525 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/lut_addr [0]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1500 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1166 .INIT=8'hAC;
+LUT3 \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1167  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1526 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1527 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/lut_addr [0]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1502 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1167 .INIT=8'hAC;
+LUT3 \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1168  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1528 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1529 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/lut_addr [0]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1504 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1168 .INIT=8'h53;
+LUT3 \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1169  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1530 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1531 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/lut_addr [0]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1506 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1169 .INIT=8'hAC;
+LUT3 \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1170  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1532 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1533 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/lut_addr [0]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1508 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1170 .INIT=8'hC5;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1171  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/lut_addr [2]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1534 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/lut_addr [3]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/lut_addr [4]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1510 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1171 .INIT=16'hF800;
+LUT2 \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1172  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/lut_addr [4]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/lut_addr [3]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1512 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1172 .INIT=4'h7;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1173  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/lut_addr [2]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1534 ),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/lut_addr [4]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/lut_addr [3]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1514 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1173 .INIT=16'h0B70;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1174  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1496 ),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/lut_addr [4]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/lut_addr [2]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/lut_addr [3]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1516 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1174 .INIT=16'hF337;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1176  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/lut_addr [1]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/lut_addr [4]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/lut_addr [3]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/lut_addr [2]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1519 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1176 .INIT=16'h3E03;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1177  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/lut_addr [3]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/lut_addr [2]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/lut_addr [4]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/lut_addr [1]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1520 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1177 .INIT=16'hF3AC;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1178  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/lut_addr [4]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/lut_addr [2]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/lut_addr [1]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/lut_addr [3]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1521 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1178 .INIT=16'h0523;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1179  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/lut_addr [3]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/lut_addr [1]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/lut_addr [2]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/lut_addr [4]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1522 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1179 .INIT=16'hFB87;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1180  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/lut_addr [2]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/lut_addr [0]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/lut_addr [1]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/lut_addr [4]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1523 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1180 .INIT=16'h1FA8;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1181  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/lut_addr [1]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/lut_addr [3]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/lut_addr [4]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/lut_addr [2]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1524 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1181 .INIT=16'hD26C;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1182  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/lut_addr [4]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/lut_addr [3]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/lut_addr [2]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/lut_addr [1]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1525 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1182 .INIT=16'hE31B;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1183  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/lut_addr [2]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/lut_addr [3]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/lut_addr [4]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/lut_addr [1]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1526 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1183 .INIT=16'h305F;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1184  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/lut_addr [4]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/lut_addr [1]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/lut_addr [2]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/lut_addr [3]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1527 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1184 .INIT=16'hACF3;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1185  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/lut_addr [3]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/lut_addr [1]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/lut_addr [4]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/lut_addr [2]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1528 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1185 .INIT=16'h9FE0;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1186  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/lut_addr [4]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/lut_addr [2]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/lut_addr [3]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/lut_addr [1]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1529 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1186 .INIT=16'h1BE3;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1187  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/lut_addr [4]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/lut_addr [2]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/lut_addr [3]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/lut_addr [1]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1530 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1187 .INIT=16'h8770;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1188  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/lut_addr [4]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/lut_addr [1]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/lut_addr [2]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/lut_addr [3]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1531 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1188 .INIT=16'h5B3C;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1189  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/lut_addr [1]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/lut_addr [3]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/lut_addr [4]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/lut_addr [2]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1532 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1189 .INIT=16'h2DCB;
+LUT4 \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1190  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/lut_addr [1]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/lut_addr [3]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/lut_addr [4]),
+	.I3(\u_dds_compiler_core/u_dds_lut_table/lut_addr [2]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1533 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1190 .INIT=16'hCBB4;
+LUT3 \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1191  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/lut_addr [0]),
+	.I1(\u_dds_compiler_core/u_dds_lut_table/lut_addr [1]),
+	.I2(\u_dds_compiler_core/u_dds_lut_table/lut_addr [4]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1534 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1191 .INIT=8'hE3;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/U_rom_style/dout_14_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1510 ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/rom_doutb [6])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/dout_14_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/U_rom_style/dout_13_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1514 ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/rom_doutb [5])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/dout_13_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/U_rom_style/dout_12_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1508 ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/rom_doutb [4])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/dout_12_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/U_rom_style/dout_11_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1506 ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/rom_doutb [3])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/dout_11_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/U_rom_style/dout_10_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1504 ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/rom_doutb [2])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/dout_10_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/U_rom_style/dout_9_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1502 ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/rom_doutb [1])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/dout_9_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/U_rom_style/dout_8_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1500 ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/rom_doutb [0])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/dout_8_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/U_rom_style/dout_6_s0  (
+	.D(VCC),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/rom_douta [6])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/dout_6_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/U_rom_style/dout_4_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1516 ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/rom_douta [4])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/dout_4_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/U_rom_style/dout_3_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1498 ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/rom_douta [3])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/dout_3_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/U_rom_style/dout_2_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1496 ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/rom_douta [2])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/dout_2_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/U_rom_style/dout_1_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1494 ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/rom_douta [1])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/dout_1_s0 .INIT=1'b0;
+DFFRE \u_dds_compiler_core/u_dds_lut_table/U_rom_style/dout_0_s0  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1492 ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.RESET(GND),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/rom_douta [0])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/dout_0_s0 .INIT=1'b0;
+DFFSE \u_dds_compiler_core/u_dds_lut_table/U_rom_style/dout_5_s1  (
+	.D(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1535 ),
+	.CLK(clk_i),
+	.CE(VCC),
+	.SET(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1512 ),
+	.Q(\u_dds_compiler_core/u_dds_lut_table/rom_douta [5])
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/dout_5_s1 .INIT=1'b1;
+LUT1 \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1192  (
+	.I0(\u_dds_compiler_core/u_dds_lut_table/lut_addr [2]),
+	.F(\u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_1535 )
+);
+defparam \u_dds_compiler_core/u_dds_lut_table/U_rom_style/n20_s1192 .INIT=2'h1;
+endmodule

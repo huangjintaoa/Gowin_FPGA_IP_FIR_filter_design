@@ -1,0 +1,25 @@
+Reading netlist file: "F:\GOWIN\Project\lab_fft\impl\gwsynthesis\lab_fft.vg"
+Parsing netlist file "F:\GOWIN\Project\lab_fft\impl\gwsynthesis\lab_fft.vg" completed
+Processing netlist completed
+Reading constraint file: "F:\GOWIN\Project\lab_fft\src\lab_fft.cst"
+Physical Constraint parsed completed
+Running placement......
+[10%] Placement Phase 0 completed
+[20%] Placement Phase 1 completed
+[30%] Placement Phase 2 completed
+[50%] Placement Phase 3 completed
+Running routing......
+[60%] Routing Phase 0 completed
+[80%] Routing Phase 2 completed
+[90%] Routing Phase 3 completed
+Running timing analysis......
+[95%] Timing analysis completed
+Placement and routing completed
+Bitstream generation in progress......
+Bitstream generation completed
+Generate file "F:\GOWIN\Project\lab_fft\impl\pnr\lab_fft.pin.html" completed
+Generate file "F:\GOWIN\Project\lab_fft\impl\pnr\lab_fft.rpt.html" completed
+Generate file "F:\GOWIN\Project\lab_fft\impl\pnr\lab_fft.rpt.txt" completed
+Generate file "F:\GOWIN\Project\lab_fft\impl\pnr\lab_fft.tr.html" completed
+Mon Jul  1 11:58:35 2024
+

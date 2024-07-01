@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gowin-synthesis-project>
+<Project>
+    <Version>beta</Version>
+    <Device id="GW5A-25A" package="MBGA121N" speed="1" partNumber="GW5A-LV25MG121NES"/>
+    <FileList>
+        <File path="F:\GOWIN\Project\lab_fft\src\fir_top.v" type="verilog"/>
+        <File path="F:\GOWIN\Project\lab_fft\src\fir_tb.v" type="verilog"/>
+        <File path="F:\GOWIN\Project\lab_fft\src\advanced_fir_filter\advanced_fir_filter.v" type="verilog"/>
+        <File path="F:\GOWIN\Project\lab_fft\src\complex_multiplier\complex_multiplier.v" type="verilog"/>
+        <File path="F:\GOWIN\Project\lab_fft\src\dds\dds.v" type="verilog"/>
+        <File path="F:\GOWIN\Project\lab_fft\src\dds_ii\dds_ii.v" type="verilog"/>
+        <File path="F:\GOWIN\Project\lab_fft\src\gowin_pll\gowin_pll.v" type="verilog"/>
+    </FileList>
+    <OptionList>
+        <Option type="disable_insert_pad" value="0"/>
+        <Option type="looplimit" value="2000"/>
+        <Option type="output_file" value="F:\GOWIN\Project\lab_fft\impl\gwsynthesis\lab_fft.vg"/>
+        <Option type="print_all_synthesis_warning" value="0"/>
+        <Option type="ram_rw_check" value="0"/>
+        <Option type="top_module" value="fir_top"/>
+        <Option type="verilog_language" value="sysv-2017"/>
+        <Option type="vhdl_language" value="vhdl-1993"/>
+    </OptionList>
+</Project>

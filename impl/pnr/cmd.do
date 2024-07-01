@@ -1,0 +1,12 @@
+-d F:\GOWIN\Project\lab_fft\impl\gwsynthesis\lab_fft.vg
+-p GW5A-25A-MBGA121N-1
+-pn GW5A-LV25MG121NES
+-cst F:\GOWIN\Project\lab_fft\src\lab_fft.cst
+-cfg F:\GOWIN\Project\lab_fft\impl\pnr\device.cfg
+-bit
+-tr
+-ph
+-timing
+-cst_error
+-correct_hold 1
+-route_maxfan 23
